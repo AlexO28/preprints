@@ -1,0 +1,212 @@
+\documentclass{beamer}
+\usepackage [russian]{babel}
+\usepackage {amssymb}
+\usepackage {amsmath}
+%\usepackage {beamerthemeBerlin}
+\usetheme{Darmstadt}
+%\usetheme{Warsaw}
+\title{Lipschitz Periodic Shadowing}
+\author{
+Aleksei V. Osipov\inst{1}\ %\and Sergei Yu. Pilyugin\inst{1}\and Sergei~B.~Tikhomirov\inst{2}
+\\
+{\small{Joined research with Sergei Yu. Pilyugin\inst{1} and Sergei~B.~Tikhomirov\inst{2}.}}
+}
+\institute{
+\inst{1}
+Saint-Petersbourg State University
+\and
+\inst{2}
+National Taiwan University
+}
+\date{January 2010}
+\begin{document}
+\begin{frame}
+%\maketitle
+\titlepage
+\end{frame}
+\begin{section}{Definitions}
+\begin{frame}{Shadowing and Lipschitz Shadowing}
+\begin{itemize}
+	\item $f:M\mapsto M$, $f\in C^1$, $M\in C^{\infty}$, dist
+	\item $\xi=\{x_n\}$ is a $d$-pseudotrajectory, if 
+	$$\mbox{dist}(x_{n+1},f(x_n))<d.$$
+	\item Shadowing property (POTP)
+	
+	$\forall\epsilon>0\ \exists d>0$ such that $\forall d$-pseudotrajectory $\xi$ there exists an exact trajectory $\{p_n\}$ such that
+	$$\mbox{dist}(x_n,p_n)<\epsilon.$$
+	\item Lipschitz shadowing property (LipSP)
+	
+	$\exists L,d_0>0$ such that $\forall d<d_0$ and $d$-pseudotrajectory $\xi$ there exists an exact trajectory $\{p_n\}$ such that
+	$$\mbox{dist}(x_n,p_n)<Ld.$$ 
+\end{itemize}
+\end{frame}
+\begin{frame}{Periodic shadowing and structural stability}
+\begin{itemize}
+	\item Periodic shadowing (PerSh)
+	
+		$\forall\epsilon>0\ \exists d>0$ such that $\forall$ periodic $d$-pseudotrajectory $\xi$ there exists a periodic exact trajectory $\{p_n\}$ such that
+	$$\mbox{dist}(x_n,p_n)<\epsilon.$$
+	\item Lipschitz periodic shadowing (LipPerSh)
+	
+	PerSh with $\epsilon=Ld$
+	\item $S$ --- the set of structurally stable diffeomorphisms
+	
+	There exists a neighborhood $U$ of $f$ in the $C^1$-topology such that $\forall g\in U$ the diffeomorphisms $f$ and $g$ are topologically conjugate.
+	\item $\Omega S$ --- the set of $\Omega$-stable diffeomorphisms
+	
+		There exists a neighborhood $U$ of $f$ in the $C^1$-topology such that $\forall g\in U$ the diffeomorphisms $f$ and $g$ are topologically conjugate on their nonwandering sets.
+\end{itemize}
+\end{frame}
+\end{section}
+\begin{section}{Known Facts and Results}
+\begin{frame}{Known Facts and Results}
+\begin{itemize}
+	\item $\mbox{Int}^1(\mbox{POTP})=S$ (Sakai, 1994)
+	\item $\mbox{POTP}\neq S$
+	\item $\mbox{PerSh}\neq \Omega S$
+	\item $\mbox{LipSP}=S$ (Pilyugin, Tikhomirov, 2009)
+	\item variational shadowing is equivalent to structural stability (Pilyugin, 2009)
+%	\item $\mbox{Int}^1(\mbox{PerSh})?=?\Omega S$
+%	\item $\mbox{LipPerSh}?=?\Omega S$
+\end{itemize}
+\begin{block}{Main results}
+Theorems (Osipov, Pilyugin, Tikhomirov, 2009)
+
+\begin{itemize}
+	\item $\mbox{Int}^1(\mbox{PerSh})=\Omega S$
+	\item $\mbox{LipPerSh}=\Omega S$
+\end{itemize}
+\end{block}
+\end{frame}
+\end{section}
+\begin{section}{General Scheme}
+\begin{frame}{General Scheme of the Proof}
+\begin{itemize}
+	\item $\Omega S\subset \mbox{LipPerSh}$
+	\item $\mbox{Int}^1(\mbox{PerSh})\subset\Omega S$
+	\item $f\in\mbox{LipPerSh}\Rightarrow f\in\Omega S$
+\begin{itemize}
+	\item Step 1. hyperbolicity of periodic points
+	\item Step 2. uniform hyperbolicity of periodic points
+	\item Step 3. $f$ has the Axiom A
+	\item Step 4. $f$ satisfies the no-cycle condition
+\end{itemize}
+\end{itemize}
+\end{frame}
+\end{section}
+\begin{section}{Proofs}
+\begin{frame}{Proof of $\Omega S\subset\mbox{LipPerSh}$}
+\begin{itemize}
+%	\item Expansivity
+%	
+%	$\exists a>0$ such that if $\mbox{dist}(f^n(x),f^n(y))<a$ $\forall n\in\mathbb{Z}$ then $x=y$
+	\item Spectral decomposition theorem: 
+	
+	$\Omega(f)=\Omega_1\cup\ldots\cup\Omega_m$, $\Omega_j$ is hyperbolic and has a dense semi-trajectory
+  \item $\xi$ is a periodic $d$-pseudotrajectory, $\xi\subset U(\Omega_j)$ for some $j$ 
+	\item Shadowing lemma: 
+	
+	if $\Lambda$ is hyperbolic then $f$ has LipSh and is expansive in some~$U(\Lambda)$ 
+\end{itemize}
+%\end{block}
+\end{frame}
+%\end{section}
+%\begin{section}{Proof of $\mbox{Int}^1(\mbox{PerSh})\subset\Omega S$}
+\begin{frame}{Proof of $\mbox{Int}^1(\mbox{PerSh})\subset\Omega S$}
+%\begin{block}
+\begin{itemize}
+	\item HP --- set of diffeomorphisms $f$ such that every periodic point of $f$ is hyperbolic
+	
+	Lemma (Aoki, 1992, Hayashi, 1992). $\mbox{Int}^1(\mbox{HP})=\Omega S$
+	\item It is enough to prove that $\mbox{Int}^1(\mbox{PerSh})\subset\mbox{HP}$
+	%\item $\forall x\in M$ $\exp_x$ and $\exp_x^{-1}$ are locally Lipschitz with constant $2$
+	\item %Let $f\in\mbox{Int}^1(\mbox{PerSh})\backslash\mbox{HP}$ with nonhyperbolic fixed $p$ and an eigenvalue $\lambda=1$. Let $h$ be a $C^1$-small pertubation of $f$ such that for $H:=\exp_p^{-1}\circ h\circ\exp_p$ the following holds
+	%$$H(u,w)=(u,Bw).$$ 
+	$h$ is a $C^1$-small pertubation of $f$ that is linear in $U(p)$, $p$ is a nonhyperbolic periodic point for $h$
+\end{itemize}
+\end{frame}
+%\end{section}
+%\begin{section}{Proof of $\mbox{LipPerSh}\subset\Omega S$}
+\begin{frame}{Proof of $\mbox{LipPerSh}\subset\Omega S$, Steps 1 and 2}
+\begin{itemize}
+\item $f, f^{-1}\in\mbox{LipPerSh}$ with $L>1$
+\item Lemma: Every periodic point is hyperbolic
+%\begin{itemize}
+%	\item $f$ has a nonhyperbolic fixed point $p$ with an eigenvalue $\lambda=1$. 
+%	$$F(v)=\exp_p^{-1}\circ f\circ\exp_p(v)=Av+\phi(v)$$
+%	There exist coordinates $v$ such that
+%	$$A=DF(p)=\mbox{diag}(B,P),\quad
+%	B=
+%	\left(\begin{matrix}
+%	1&1\\
+%	0&1
+%	\end{matrix}
+%	\right)
+%	$$ 
+%	\item $y_K=(Z_1(K)d,Kd,0,\ldots,0),\quad y_{2K}=(Z_2(K)d,0,0,\ldots,0)$
+%	\item $Q=2K+Z_2(K)$, $y_Q=y_0=0$
+%	\item $\xi=\{x_k=\exp_p(y_k)\}$ is a $Q$-periodic $4d$-pseudotrajectory
+%\end{itemize}
+%\end{itemize}
+\item Key lemma: Set of all periodic points of $f$ has all properties of a standart hyperbolic set except compactness.
+$$|Df^j(p)v_s|\leq C\lambda^j|v_s|,\quad |Df^{-j}(p)v_u|\leq C\lambda^j|v_u|,$$ where $j\geq0$, $v_s\in S(p)$, $v_u\in U(p)$
+\begin{itemize}
+\item $p$ is an $m$-periodic point, let $v_0=v_u\in U(p)$, $v_{i+1}=Df^i(p)v_i$, 
+$$\lambda_i=|v_{i+1}|/|v_i|,\quad 	a_0=\tau,\ \  a_{i+1}=\lambda_i a_i-1,$$ %where $\tau$ depends only on $\lambda_j$ for $0\leq j\leq m-1$
+where $\tau$ is chosen such that $a_m=0$ 
+	\item $w_i=a_iv_i/|v_i|$ for $0\leq i\leq m-1$, $\{w_i\}$ is an $m(n+1)$-periodic%, $w_m=B^{-n}\tau v_0/|v_0|$, $w_{m+1+i}=A_iw_{m+i}$ for $0\leq i\leq mn-1$, where $n=\dim M$,
+	%$w_{km}=B^{k-1-n}\tau|v_0|/|v_0|$ for $1\leq k\leq n+1$
+	\item $|Df^i(p)v_u|=\lambda_0\cdot\ldots\lambda_{i-1}>\frac{1}{16L}\left(1+\frac{1}{8L}\right)^i|v_u|, \quad 0\leq i\leq m-1.$
+\end{itemize}
+\end{itemize}
+\end{frame}
+%\begin{frame}{Proof of $\mbox{LipPerSh}\subset\Omega S$, Part 4}
+%\begin{itemize}%
+%	\item sequence $\xi=\{x_i=\exp_{p_i}(dw_i)\}$ is an $m(n+1)$-periodic $4d$-pseudotrajectory 
+%	\item inequality $\mbox{dist}(x_i,f^i(p))\leq 4Ld$ implies relation $|a_i|\leq 8Ld$ for $0\leq i\leq m-1$,
+%	\item Remind that $\lambda_i=(a_{i+1}+1)/a_i$, $\lambda_i=|Df^{i+1}(p)v_u|/|Df^i(p)v_u|$
+%	\item
+%	$$|Df^i(p)v_u|=\lambda_0\cdot\ldots\lambda_{i-1}=$$
+%	$$=\frac{a_{i}+1}{a_0}\left(1+\frac{1}{a_1}\right)\ldots\left(1+\frac{1}{a_{i-1}}\right)>$$
+%	$$> \frac{1}{16L}\left(1+\frac{1}{8L}\right)^i|v_u|, \quad 0\leq i\leq m-1.$$
+%\end{itemize}
+%\end{frame}
+\begin{frame}{Proof of $\mbox{LipPerSh}\subset\Omega S$, Steps 3 and 4}
+\begin{itemize}
+	\item Lemma: $f$ satisfies the Axiom A
+\begin{itemize}
+  \item $P_l$ --- the set of periodic points of index $l$
+	\item $\mbox{Cl}P_l$ is a hyperbolic set.
+	\item density of periodic points in $\Omega(f)$
+\end{itemize}
+	\item Lemma:	$f$ has no cycles 
+\begin{itemize}
+\item any cycle is approximated by periodic pseudotrajectories
+\item any cycle is approximated by periodic exact trajectories
+%	\item For simplicity we prove that $f$ has no $1$-cycles. Suppose there exists $p\in (W^u(\Omega_i)\cap W^s(\Omega_i))\backslash\Omega(f)$.
+%	\item construct a periodic $d$-pseudotrajectory coming through $p$ and ''cycling'' around $\Omega_i$
+%	\item $p$ is a limit of periodic points 
+\end{itemize}
+\end{itemize}
+\end{frame}
+\end{section}
+\begin{section}{Conclusion}
+\begin{frame}{Conclusion}
+\begin{block}{Theorems (Osipov, Pilyugin, Tikhomirov, 2009)}
+\begin{itemize}
+	\item $\mbox{Int}^1(\mbox{PerSh})=\Omega S$
+	\item $\mbox{LipPerSh}=\Omega S$
+\end{itemize}
+\end{block}
+\ 
+\\
+
+\ 
+\\
+
+\begin{center}
+Thank you very much for your attention!
+\end{center}
+\end{frame}
+\end{section}
+\end{document}
