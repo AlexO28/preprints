@@ -1,0 +1,80 @@
+\section{Main definitions.}
+
+Let $G$ be a finitely generated (not necessarily abelian) group.
+Let $\Omega$ be a metric space with a metric $\dist$. For $x \in \Omega$, $U \subset \Omega$, $\delta>0$ denote
+$$
+B(\delta, x) = \{y\in \Omega: \dist(x, y) < \delta\}, \quad
+B(\delta, U) = \cup_{x \in U} B(\delta, x).
+$$
+
+We say that a map $\Phi: G \times \Omega \to \Omega$ is a (left) action of a group $G$ if the following holds:
+\begin{itemize}
+\item[(G1)] the map $f_g = \Phi(g, \cdot)$ is a homeomorphism of $\Omega$ for any $g \in G$;
+
+\item[(G2)] $\Phi(e, x) \equiv x$, where $e \in G$ is the identity element of the group $G$;
+
+\item[(G3)] $\Phi(g_1g_2, x) = \Phi(g_1, \Phi(g_2, x))$, for any $g_1, g_2 \in G$, $x \in \Omega$.
+\end{itemize}
+
+We say that an action $\Phi$ is \textit{uniformly continuous} if for some symmetric generating set $S$ (a generating set is called symmetric if together with any element $s \in S$ it contains $s^{-1}$) of a group $G$ the maps $f_{s}$ are uniformly continuous for all $s\in S$. Note that if $\Omega$ is compact, then any action of a finitely generated group is uniformly continuous.
+
+
+Let us fix some finite symmetric generating set $S$ of a group $G$.
+
+\begin{defin}\label{defPst}
+For $d >0$ we say that a sequence $\{y_{g}\}_{g\in G}$ is a $d$-pseudo\-tra\-jec\-to\-ry of an action $\Phi$ (with respect to the generating set $S$) if
+\begin{equation}
+\label{dpstdef}
+\dist(y_{sg}, f_s(y_g)) < d, \quad s \in S, g \in G.
+\end{equation}
+\end{defin}
+
+\begin{defin}\label{defStSh}
+We say that an uniformly continuous action $\Phi$ has the \textit{shadowing property} on a set $V \subset \Omega$ if for any $\ep > 0$ there exists $d > 0$ such that for any $d$-pseudotrajectory $\{y_g \in V\}_{g\in G}$ there exists a point $x_e \in \Omega$ such that
+\begin{equation}\label{eqDefSh}
+\dist(y_g, f_g(x_e)) < \ep, \quad g \in G.
+\end{equation}
+In this case we say that $\{y_g\}$ is $\ep$-shadowed by the exact trajectory $\{x_g = f_g(x_e)\}_{g\in G}$.
+If $V = \Omega$ we simply say that $\Phi$ has the shadowing property.
+\end{defin}
+
+This notion is a natural generalization of the concept of the shadowing property introduced in \cite{PilTikh} for actions of $\ZZ^n$.
+
+Let us also note that the definition of a pseudotrajectory depends on a choice of the generating set $S$. However the following proposition shows that if an  uniformly continuous action has shadowing for one finite symmetric generating set, then it has shadowing for any finite symmetric generating~set.
+
+\begin{prp}
+\label{prop}
+Let $S$ and $S^{\prime}$ be two finite symmetric generating sets for a group $G$.  An uniformly continuous action $\Phi$ has the shadowing property on a set $V \subset \Omega$ with respect to the generating set $S$, if and only if it has the shadowing property on a set $V \subset \Omega$ with respect to the generating set $S^{\prime}$.
+\end{prp}
+
+The proof of Proposition \ref{prop} is straightforward, see Appendix.
+
+The following notion of expansivity is important for our results:
+\begin{defin}
+An action $\Phi$ is \textit{expansive} (or has \textit{expansivity}) on a set $U \subset \Omega$ if there exists $\Delta > 0$ such that if
+$$
+\Phi(g, x_1),\Phi(g, x_2) \in U, \quad \dist(\Phi(g, x_1), \Phi(g, x_2)) < \Delta, \quad \forall g \in G
+$$
+for some $x_1, x_2 \in U$, then
+ $x_1 = x_2$.
+\end{defin}
+Note that if $G_1 \leq G$ is a subgroup of $G$ and $\Phi|_{G_1}$ has expansivity, then~$\Phi$ has expansivity too.
+
+Any homeomorphism $f: \Omega \to \Omega$ induces an action $\Phi_f: \mathbb{Z} \times \Omega \to \Omega$ of the group $\mathbb{Z}$ defined as $\Phi_f(k, x) = f^k(x)$ for $k\in\mathbb{Z}$.
+ We say that
+\begin{enumerate}
+\item a %uniformly continuous
+homeomorphism $f$ has shadowing on a set \hbox{$V \subset \Omega$};
+\item a homeomorphism $f$ has expansivity on a set $U \subset \Omega$;
+\end{enumerate}
+if the corresponding action $\Phi_f$ has this properties. Note that these definitions are equivalent to classical definitions of these notions.
+
+\begin{defin}
+Consider two sets $U, V \subset \Omega$. We say that an uniformly continuous action $\Phi$ is topologically Anosov with respect to the pair $(U, V)$ if the following conditions are satisfied:
+\begin{itemize}
+\item[(TA1)] there exists $\gamma > 0$ such that $B(\gamma, V) \subset U$;
+\item[(TA2)] $\Phi$ has the shadowing property on $V$;
+\item[(TA3)] $\Phi$ is expansive on $U$.
+\end{itemize}
+\end{defin}
+

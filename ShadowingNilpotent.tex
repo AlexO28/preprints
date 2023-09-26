@@ -1,0 +1,125 @@
+\documentclass[12pt]{article}
+
+%\usepackage[english,russian]{babel}
+\usepackage[english]{babel}
+\usepackage{amsfonts, amssymb, amsmath, amsthm, epsf}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps}
+\usepackage{dsfont}
+%\usepackage{graphicx}
+
+%\usepackage{fullpage}
+
+\DeclareMathOperator{\dist}{dist}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{prp}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{cond}{Condition}
+
+\theoremstyle{definition}
+\newtheorem{defin}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+\newtheorem{question}{Question}
+\newtheorem{conj}{Conjecture}
+
+%\newtheorem{prop}{Proposition}
+
+\title{Shadowing for actions of some finitely generated groups.}
+\author{Alexey V. Osipov
+\footnote{Chebyshev Laboratory, Saint-Petersburg State University,
+14th line of Vasilievsky island, 29B, Saint-Petersburg, 199178, Russia;
+Centro di ricerca matematica Ennio de Giorgi, Scuola Normale Superiore,
+Piazza dei Cavalieri 3,
+Pisa, 56100, Italy;
+osipovav28@googlemail.com}
+\and
+Sergey B. Tikhomirov \footnote{Free University Berlin, Arnimallee 3, Berlin, 14195, Germany; Chebyshev Laboratory, Saint-Petersburg State University,
+14th line of Vasilievsky island, 29B, Saint-Petersburg, 199178, Russia; sergey.tikhomirov@gmail.com}
+}
+\begin{document}
+
+\newcommand{\ep}{\varepsilon}
+\newcommand{\lam}{\lambda}
+\newcommand{\sref}[1]{(\ref{#1})}
+\newcommand{\ZZ}{\mathds{Z}}
+\newcommand{\RR}{\mathds{R}}
+
+\maketitle
+
+\begin{abstract}
+We introduce a notion of shadowing property for actions of finitely generated groups and study its basic properties. We formulate and prove a shadowing lemma for actions of nilpotent groups. We construct an example of a linear action of a solvable Baumslag-Solitar group and show that the shadowing property depends on quantitative characteristics of hyperbolicity. Finally we show that any linear action of a non-abelian free group does not have the shadowing property.
+\end{abstract}
+
+\textbf{Keywords:} Shadowing, expansivity, group action, nilpotent group, solvable group, free group.
+
+\input{Section1.tex}
+
+\input{Section2.tex}
+
+\input{Section3.tex}
+
+\input{Section4.tex}
+
+\input{Section5.tex}
+
+\input{Section7.tex}
+
+\input{Section6.tex}
+
+\section{Appendix.}
+
+\begin{proof}[Proof of Proposition \ref{prop}]
+The generating set $S$ induces on $G$ a so-called \textit{word norm} defined as length of the shortest representation of an element in terms of elements from $S$. We define by $|g|_S$ (or simply by $|g|$) the word norm of an element $g$ with respect to $S$.
+
+It is well known that two word norms corresponding to two finite generating sets $S$ and $S^{\prime}$ are bilipschitz equivalent, i.e. there exists a constant $C\geq 1$ such that
+\begin{equation}
+\label{normequiv}
+|g|_{S^\prime}/C\leq |g|_S\leq C|g|_{S^\prime},\quad\forall g\in G.
+\end{equation}
+
+Fix an $\epsilon>0$. Let $d$ be the number from the definition of shadowing of~$\Phi$ with respect to $S$ corresponding to $\epsilon$.
+By uniform continuity of $\Phi$, there exists a constant $d_1< d/C$ such that %for any $|g|_{S^{\prime}}\leq C$ and any two points $\omega_1,\omega_2\in \Omega$ such that $\mbox{dist}(\omega_1,\omega_2)< d_1$ we have
+\begin{equation}
+\label{uniformcont}
+\mbox{dist}(f_g(\omega_1),f_g(\omega_2))< d/C,
+\end{equation}
+for any $g\in G$, $\omega_1,\omega_2\in \Omega$ provided $|g|_{S^{\prime}}\leq C$ and $\mbox{dist}(\omega_1,\omega_2)< d_1$.
+
+Let $\{y_{g} \in V\}_{g\in G}$ be a $d_1$-pseudotrajectory of $\Phi$ with respect to the generating set $S^{\prime}$, i.e. by $(\ref{dpstdef})$
+$$
+\mbox{dist}(y_{s^{\prime}g}, f_{s^{\prime}}(y_{g}))< d_1,\quad s^{\prime}\in S^{\prime}.
+$$
+%Consequently, by equicontinuity of $\{f_{g}\}|_{|g|_{S^{\prime}}\leq C}$,
+Consequently, by $(\ref{uniformcont})$,
+$$\mbox{dist}(y_{s^{\prime}_C\ldots s^{\prime}_1 g},f_{s^{\prime}_C\ldots s^{\prime}_1} (y_g))\leq
+\mbox{dist}(y_{s^{\prime}_C\ldots s^{\prime}_1 g}, f_{s^{\prime}_C}(y_{s^{\prime}_{C-1}\ldots s^{\prime}_1 g}))+$$
+$$+ \mbox{dist}(f_{s^{\prime}_C}(y_{s^{\prime}_{C-1}\ldots s^{\prime}_1 g}), f_{s^{\prime}_C}(f_{s^{\prime}_{C-1}}(y_{s^{\prime}_{C-2}\ldots s^{\prime}_1 g}))) + \ldots + $$
+$$+\mbox{dist}( f_{ s^{\prime}_C\ldots s^{\prime}_2 }( y_{s^{\prime}_1 g} ), f_{s^{\prime}_C\ldots s^{\prime}_2}(f_{s^{\prime}_1}(y_g)))< d_1 + d/C + \ldots + d/C<d
+$$
+for any $s^{\prime}_1,\ldots, s^{\prime}_C\in S^{\prime}$.
+To summarize,
+\begin{equation}
+\label{dpstdefmod}
+\mbox{dist}(y_{hg}, f_{h}(y_{g}))< d,
+\end{equation}
+for all $h \in G$ such that $|h|_{S^{\prime}}\leq C$ .
+It follows from $(\ref{normequiv})$ that any element $s\in S$ satisfies $|s|_{S^{\prime}}\leq C$.
+Thus it follows from $(\ref{dpstdefmod})$ that the sequence $\{y_{g}\}_{g\in G}$ is a $d$-pseudotrajectory of $\Phi$ with respect to the generating set $S$.
+
+It follows from our assumptions that $\{y_{g}\}_{g\in G}$ is $\epsilon$-shadowed by some point $x_e$. However inequalities $(\ref{eqDefSh})$ do not depend on the choice of the generating set. Thus $\Phi$ has shadowing with respect to $S^{\prime}$. Clearly $\Phi$ is an uniformly continuous action with respect to $S^{\prime}$ too.
+
+\end{proof}
+
+
+\section{Acknowledgment.}
+
+Both authors are grateful to the organizers of Montevideo Dynamical Systems Conference 2012 for hospitality and creation of a fruitful atmosphere for the discussions that eventually led to the creation of this paper.
+The work of both authors was partially supported  by the Chebyshev Laboratory (Department of Mathematics and Mechanics, St. Petersburg State University)  under RF Government grant 11.G34.31.0026. The work of the first author was partially supported by and performed at Centro di ricerca matematica Ennio De Giorgi (Italy). Also the work of the first author was partially supported by the travel grant 12-01-09302-mob\_z of RFFI. Work of the second author was also partially supported by the Humboldt Foundation (Germany).
+
+
+\input{bibl.tex}
+
+\end{document}

@@ -1,0 +1,43 @@
+\section{Finitely generated groups.}
+
+In this section we will outline basic notions from theory of finitely generated groups,
+give relevant definitions, and formulate statements that we use in the
+sequel. We refer the interested reader to the following books on group theory:~\cite{Bech, BrHaef, PdH, Kur}.
+
+A group $G$ is called \textit{abelian} if $[g,h]:=ghg^{-1}h^{-1}=e$ for any $g,h\in G$.
+
+\begin{defin}
+Any abelian group is called a \textit{nilpotent group of class 0}.
+A group $G$ is called \textit{nilpotent of class $n$} if it has the \textit{lower central series} of length~$n$:
+\begin{equation}\notag
+\label{nilpdef}
+G=G_1\rhd \ldots\rhd G_{n+1}=e,\quad\mbox{where }G_{i+1}=[G_i,G],
+\end{equation}
+(as usual, $G_i\rhd G_{i+1}$ means that $G_{i+1}$ is a normal subgroup of $G_i$).
+\end{defin}
+
+The simplest nontrivial example of a nilpotent group is a so-called \textit{Heisenberg group} (see \cite{PdH}, \cite{Kur}): $<a,b,c\mid c=[a,b], ac=ca,bc=cb>$.
+
+\begin{defin}
+A group is called \textit{virtually nilpotent} if it has a nilpotent normal subgroup of a finite index (i.e. the corresponding factor group is finite).
+\end{defin}
+
+\begin{remark}\label{remFinGen}
+Note that any subgroup of a finitely generated virtually nilpotent group is finitely generated. In fact the similar statement holds for a more general class of polycyclic groups (see \cite{BrHaef, Seg} for the details).
+\end{remark}
+
+Virtually nilpotent groups are important due to the celebrated theorem of Gromov: Any group of polynomial growth is virtually nilpotent. We refer the reader to \cite{Gromov} for the precise statement.
+
+
+\begin{defin}
+A group is called \textit{solvable} or \textit{soluble} if there exists a \textit{subnormal series} (of not necessarily finitely generated groups) $e=G_n\lhd\ldots\lhd G_1\lhd G_0=G$ such that $G_i/G_{i+1}$ is an abelian group. %This series are called \textit{subnormal} series.
+\end{defin}
+
+We study Baumslag-Solitar groups (see \cite{PdH}):
+$$
+BS(m,n)=<a,b\mid ab^ma^{-1}=b^n>,\quad m,n\in\mathbb{Z},
+$$
+which are solvable for $m=1$. These groups are well known in group theory as a source of numerous counterexamples.
+
+We study actions of $F_n=<a_1,\ldots,a_n\mid\cdot>$, the \textit{free group} with $n$ generators, which is obviously not solvable.
+

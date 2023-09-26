@@ -1,0 +1,120 @@
+%\section{Absense of shadowing for actions of groups with infinitely many ends.}
+\section{Actions of free groups.}
+
+Without loss of generality, by Proposition 1, we consider a free group $G=\allowbreak=<~a_1,\ldots,a_n|\cdot>$ with the standard generating set $S = \{a_1^{\pm 1},\ldots,a_n^{\pm 1}\}$.
+It means that any element $g\in G$ has a normal form $g=s_r\ldots s_1$ (where $s_j\in S$), i.e. the unique shortest representation in terms of elements of $S$.
+
+\begin{proof}[Proof of Theorem \ref{thIME}.]
+
+%We will start from \textbf{Item 1}.
+\textbf{Proof of Item 1}.
+ To derive a contradiction, suppose that $\Phi$ has shadowing. Let $d$ be the number that corresponds to $\epsilon=\Delta$ (the constant of expansivity of~$f_g$) in the definition of shadowing for $\Phi$.
+
+Consider the normal form of $g$: $g=s_r\ldots s_1$.
+Fix any $q\in S\backslash \{s_1, s_1^{-1}\}$.
+%Let $d$ be a small number.
+Since $f_{q}^{-1}$ is uniformly continuous, there exists a number $d_1<d$ such that
+\begin{equation}
+\label{unifcont}
+\mbox{dist}(f_{q}^{-1}(w_1),f_{q}^{-1}(w_2))< d,
+\end{equation}
+for any $w_1,w_2\in\Omega$ satisfying $\mbox{dist}(w_1,w_2)< d_1$.
+
+Fix two distinct points $\omega_0,\omega\in \Omega$ such that $\mbox{dist}(\omega_0,\omega)< d_1$. We construct a pseudotrajectory $\{y_t\}_{t\in G}$ in the following way:
+$$
+y_t = 
+\begin{cases}
+\Phi(t,f_{q}^{-1}(\omega)),& \mbox{if the normal form of $t\in G$ starts with $q$},\\
+\Phi(t,f_{q}^{-1}(\omega_0)),& \mbox{otherwise}.
+\end{cases}
+$$
+Note that, by $(\ref{unifcont})$,
+$$\mbox{dist}(y_{q},f_{q}(y_e)) = \mbox{dist}(\omega,\omega_0)< d_1< d,$$
+$$
+\mbox{dist}(y_e, f_{q}^{-1}(y_{q})) = \mbox{dist}(f_{q}^{-1}(\omega_0),f_{q}^{-1}(\omega))< d,
+$$
+and the equality $y_{st} = f_s(y_t)$ holds for all other $s\in S$, $t\in G$. Hence $\{y_t\}_{t\in G}$ is a $d$-pseudotrajectory.
+
+Our assumptions imply the existence of a point $x_e$ such that inequalities~$(\ref{eqDefSh})$ hold.
+Consequently,
+$$\mbox{dist}(y_{g^k},\Phi(g^k,x_e))=\mbox{dist}(f_g^k(f_{q}^{-1}(\omega_0)) ,f_g^k(x_e))\leq \Delta,\quad\forall k\in\mathbb{Z},$$
+which, by expansivity, implies that
+\begin{equation}
+\label{contr1}
+x_e = f_q^{-1}(\omega_0).
+\end{equation}
+Since the normal form of $\{g^kq\}_{k\in\mathbb{Z}}$ starts from $q$,
+$$\mbox{dist}(y_{g^kq},\Phi(g^kq,x_e))=\mbox{dist}(f_{g}^k(\omega), f_{g}^k(f_q(x_e)))\leq \Delta,\quad\forall k\in\mathbb{Z}.$$
+Hence, by expansivity, $\omega = f_q(x_e)$, which together with $(\ref{contr1})$ contradicts to the choice of $\omega$ and $\omega_0$.
+Thus $\Phi$ does not have shadowing, which proves Item~1.
+
+\textbf{Proof of Item 2.}
+Let $\epsilon$ be any number such that for any $d<\epsilon$ the map $f_g$ has a $d$-pseudotrajectory that cannot be $\epsilon$-shadowed by any exact trajectory of $f_g$.
+Consider the normal form of $g=s_r\ldots s_1$.
+Fix any $d<\epsilon$. There exists a number $d_1<d$ such that for any $\phi$ that has a form $\phi=f_{s_j}\ldots f_{s_1}$ or $\phi= f_{s_j^{-1}} \ldots f_{s_{r}^{-1}}$ for some $1\leq j\leq r$ we have
+\begin{equation}
+\label{importref}
+\mbox{dist}(\phi(w_1),\phi(w_2))\leq d,
+\end{equation}
+for all $w_1,w_2\in\Omega$ such that $\mbox{dist}(w_1,w_2)\leq d_1$.
+
+%By $\eqref{importref}$, there exists a sequence $\{z_k\}_{k\in\mathbb{Z}}$ such that
+%$$z_{rk} = x_k,\quad k\in\mathbb{Z},$$
+%$$\mbox{dist}(z_{rk+j}, f_{s_j}(z_{rk+j-1}))\leq d,\qquad 1\leq j\leq r,\quad k\geq0,$$
+%$$\mbox{dist}(z_{rk+j-1}, f_{s^{-1}_{j}}(z_{rk+j}))\leq d,\qquad 1\leq j\leq r,\quad k\geq0,$$
+%$$\mbox{dist}(z_{rk-j}, f_{s^{-1}_{r-j+1}}(z_{rk-j+1}))\leq d,\qquad 1\leq j\leq r,\quad k\leq0,$$
+%$$\mbox{dist}(z_{rk-j-1}, f_{s_{r-j+1}}(z_{rk-j}))\leq d,\qquad 1\leq j\leq r,\quad k\leq0.$$
+
+Consider a $d_1$-pseudotrajectory $\{x_k\}_{k\in\mathbb{Z}}$ for $f_g$ that cannot be $\epsilon$-shadowed and
+the sequences $\{z_k\}_{k\in\mathbb{Z}}$, $\{y_t\}_{t \in G}$ defined as follows
+$$
+\begin{cases}
+z_{rk} = x_k, & \quad k\in\mathbb{Z},\\
+z_{rk+j+1} = f_{s_{j+1}}(z_{rk+j}), & \quad 0 \leq j < r-1, \quad k \in \mathbb{Z};\\
+\end{cases}
+$$
+and
+$$
+y_t = \begin{cases}
+z_{rk+j}, & \mbox{for $t=s_j\ldots s_1(s_r\ldots s_1)^k$, $k\geq0$, $1\leq j\leq r$};\\
+z_{-rk-j}, & \mbox{for $t=s_j^{-1}\ldots s_r^{-1}(s_r\ldots s_1)^{-k}$, $k\geq0$, $1\leq j\leq r$};\\
+\Phi(t,x_0), & \mbox{otherwise}.
+\end{cases}
+$$
+
+%\begin{itemize}
+%\item $y_t=z_{rk+j}$ for $t=s_j\ldots s_1(s_r\ldots s_1)^k$, $k\geq0$, $1\leq %j\leq r$,
+%\item $y_t = z_{-rk-j}$ for $t=s_j^{-1}\ldots s_r^{-1}(s_r\ldots s_1)^{-k}$, %$k\geq0$, $1\leq j\leq r$,
+%	\item $y_t = \Phi(t,x_0)$ otherwise.
+%\end{itemize}
+
+
+
+%\begin{equation}
+%\label{seteq1}
+%\mbox{dist}(z_{rk+j}, f_{s_j}(z_{rk+j-1}))\leq d,\qquad 1\leq j\leq r,\quad %k\geq0,
+%\end{equation}
+%\begin{equation}
+%\mbox{dist}(z_{rk+j-1}, f_{s^{-1}_{j}}(z_{rk+j}))\leq d,\qquad 1\leq j\leq %r,\quad k\geq0,
+%\end{equation}
+%\begin{equation}
+%\mbox{dist}(z_{rk-j}, f_{s^{-1}_{r-j+1}}(z_{rk-j+1}))\leq d,\qquad 1\leq %j\leq r,\quad k\leq0,
+%\end{equation}
+%\begin{equation}
+%\label{seteq4}
+%\mbox{dist}(z_{rk-j-1}, f_{s_{r-j+1}}(z_{rk-j}))\leq d,\qquad 1\leq j\leq %r,\quad k\leq0.
+%\end{equation}
+
+
+%We construct a sequence $\{y_t\}_{t\in G}$ in the following way:
+
+By $\eqref{importref}$ the sequence $\{y_t\}_{t\in G}$ is a $d$-pseudotrajectory. If it is $\ep$-shadowed by the trajectory of a point $u_e$, then $\{x_k\}_{k\in\mathbb{Z}}$ is $\ep$-shadowed by $\{f_g^k(u_e)\}_{k\in\mathbb{Z}}$, which leads to a contradiction.
+\end{proof}
+
+
+
+%By the construction of $\{z_k\}_{k\in\mathbb{Z}}$ and $\{y_t\}_{t\in G}$, the %existence of a point $x_e$ such that the analog of $(\ref{eqDefSh})$ holds %would imply that $\{x_k\}_{k\in\mathbb{Z}}$ can be $\ep$-shadowed by some %exact trajectory of $f_g$, which is not true. Item 2 is proved.
+
+
+%\end{proof}
+
