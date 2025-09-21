@@ -1,0 +1,20 @@
+Let $I$ be the set of integers. We will consider cases $I=\Zb \cap [0,+\infty)$ and $I=\Zb.$ Let $\Ac=\{A_k\}_{k\in I}$ be a sequence of linear isomorphisms $\Rb^d\to\Rb^d,$ indexed by numbers from $I.$ Consider homogeneous and inhomogeneous linear systems of equations with this sequence:
+\begin{IEEEeqnarray}{rCll}
+x_{k+1}&=&A_k x_k,\qquad &k\in I, \label{eq:homogen} \\
+x_{k+1}&=&A_k x_k + f_{k+1},\qquad &k\in I. \label{eq:nonhomogen}
+\end{IEEEeqnarray}
+
+%\noindent ¬ведЄм аналог фундаментальной матрицы:
+%$$
+%	\Phi_{m,l} = \begin{cases}
+%		A_{m-1}\circ\ldots\circ A_{l}, & m > l,\\
+%		Id, & m=l,\\
+%		A_{m}^{-1}\circ\ldots\circ A_{l-1}^{-1}, & m < l.
+%	\end{cases}
+%$$
+
+We denote fundamental matrix of this system by $\Phi_{m,l}.$ We'll use linear subspaces of $(\Rb^d)^{I}$ -- the vector space of sequences of vectors from $\Rb^d,$ indexed by numbers from $I.$ For $\omega\in\Rb$ denote by  $\Nc_{\omega}(I)$ the Banach space of all sequences with bounded norm $\normban{x}_\omega=\sup\limits_{k\in I} \vmod{x_k} (|k|+1)^\omega.$
+
+\begin{deff}
+For real $\alpha,\beta$ we say that the sequence $\Ac$ have the \indef{Perron property} $B_{\alpha,\beta}(I)$ if for any sequence $f\in \Nc_\alpha(I)$ there exists a solution of inhomogeneous equation \eqref{eq:nonhomogen} that lay in $\Nc_\beta(I).$ For $\alpha = \beta$ we will write simply $B_\alpha(I).$
+\end{deff}

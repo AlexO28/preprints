@@ -1,0 +1,36 @@
+Let $f$ be a diffeomorphism of a Riemannian manifold $M.$
+%
+\begin{deff}
+A sequence $\seqz{x}{k}$ of points of $M$ is a \textit{$d$-pseudotrajectory} if
+\begin{equation*}
+\dist(x_{k+1},f(x_k))<d,\quad k\in\Zb.
+\end{equation*}
+\end{deff}
+%
+\begin{deff}
+$f$ has \textit{shadowing property} (pseudo-orbit tracing property, $f\in POTP (=StSh)$) if for a given $\eps$ there exists $d > 0$ such that for any $d$-pseudotrajectory $\{x_k\}$ there exists a point $p\in M,$ such that
+$$
+\dist(x_{k},f^k(p)) \leq  \eps,\quad k\in\Zb.
+$$
+\end{deff}
+%
+We denote the set of all structurally stable diffeomorphisms of $M$ by $SS.$
+\begin{theorem}[Sakai, 1994]
+$$SS=Int^1 (POTP).$$
+\end{theorem}
+%
+\begin{deff}
+$f$ has \textit{Lipschitz shadowing property} if there exist constants
+$L, d_0 > 0$ with the following property: for any $d$-pseudotrajectory $\{x_k\}$ with $d < d_0$ there exists a point $p\in M,$ such that
+$$
+\dist(x_{k},f^k(p)) \leq  Ld,\quad k\in\Zb.
+$$
+We will write $f\in LSP$ in this case.
+\end{deff}
+%
+Lipschitz shadowing gives Lipschitz control on accuracy.
+%
+\begin{theorem}[Pilyugin, Tikhomirov, 2010] \label{thm:mainlip}
+$$SS=LSP.$$
+%A diffeomorphism $f$ is structurally stable iff $f\in LSP.$
+\end{theorem}

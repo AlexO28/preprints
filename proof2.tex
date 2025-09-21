@@ -1,0 +1,20 @@
+There is a relation between the solvability of the system of linear difference equations and some hyperbolicity properties of this system.
+\newline
+Let $I$ be either $\Zplus = \setdef{k\in\Zb}{k\geq 0}$ or $\Zminus = \setdef{k\in\Zb}{k\leq 0}$ or $\Zb.$
+
+Let $\Ac=\{A_k\}_{k\in I}$ be a sequence of linear isomorphisms $\Rb^d\to\Rb^d$ indexed by integers from $I.$ Consider homogeneous and inhomogeneous equations associated with this sequence.
+
+\begin{IEEEeqnarray*}{rCll}
+x_{k+1}&=&A_k x_k,\qquad &k\in I; \label{eq:homogen} \\
+x_{k+1}&=&A_k x_k + f_{k+1},\qquad &k\in I. \label{eq:nonhomogen}
+\end{IEEEeqnarray*}
+
+Fix $\omega \geq 0.$ Denote the Banach space of sequences with bounded norm $\normban{x}_\omega=\sup\limits_{k\in I} \vmod{x_k} (|k|+1)^\omega$ by $\Nc_{\omega}(I).$ Such spaces have been already studied in a similar context (Bichekguev, 2011).
+
+\begin{deffnon}
+A sequence $\Ac$ has \indef{Perron property $B_{\omega}(I)$ } if $\seqz{f}{k}\in \Nc_\omega(I)$ \imply solution of inhomogeneous equation $\seqz{x}{k} \in \Nc_\omega(I).$
+\end{deffnon}
+
+Such properties are often called \indef{admissibility.}
+
+

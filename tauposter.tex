@@ -1,0 +1,304 @@
+%\documentclass[final,notheorems,hyperref={pdfpagelabels=false}]{beamer}
+\documentclass[final,notheorems]{beamer}
+
+\mode<presentation> {
+  \usetheme{Tau}
+}
+
+%\usepackage[orientation=portrait,size=a0,scale=1.4,debug]{beamerposter}
+\usepackage[orientation=portrait,size=a0,scale=1.4,debug]{beamerposter}
+
+%\usefonttheme{serif}
+\usefonttheme{professionalfonts}
+
+\usepackage[english]{babel}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amsfonts,amssymb}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage{verbatim}
+
+\usepackage{setspace}
+
+\definecolor{defwordcolor}{rgb}{0.7,0.0,0.0}
+\setbeamercolor{alerted text}{fg=defwordcolor}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Rb}{\mathbb R}
+\newcommand{\Nb}{\mathbb N}
+\newcommand{\Zb}{\mathbb Z}
+\newcommand{\Lc}{\mathcal L}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dx}{\textbf{dx}}
+\newcommand{\lb}{\left(}
+\newcommand{\rb}{\right)}
+\newcommand{\Ac}{\mathcal{A}}
+\newcommand{\diff}[2]{\frac{\partial}{\partial #2}#1}
+\newcommand{\diffd}[2]{\frac{\partial^2}{\partial #1 \partial #2}}
+\newcommand{\sumd}[2]{\sum_{u = #1}^{#2}}
+\newcommand{\ceilr}{\lceil r \rceil}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\enbrace}[1]{\lb #1 \rb}
+\newcommand{\inv}[1]{{#1}^{-1}}
+\newcommand{\setdef}[2]{\left\{ #1\ \left|\ #2 \right.\right\}}
+\newcommand{\seqz}[2]{\left\{ {#1}_{#2} \right\}_{#2\in\Zb}}
+\newcommand{\seq}[1]{ \{ #1 \} }
+
+\newcommand{\half}[1]{\frac{#1}{2}}
+
+\newcommand{\vmod}[1]{\left| #1 \right|}
+
+\newcommand{\Zplus}{\Zb^+}
+\newcommand{\Zminus}{\Zb^-}
+\newcommand{\Rplus}{\Rb^+}
+\newcommand{\Rminus}{\Rb^-}
+
+\newcommand{\Nc}{\mathcal{N}}
+\newcommand{\normB}[1]{\left\| #1 \right\|_\infty}
+
+\newcommand{\normop}[1]{\left\| #1 \right\|}
+\newcommand{\normban}[1]{\left\| #1 \right\|}
+
+\newcommand{\sfm}[2]{X_{#1} P X_{-#2} }
+\newcommand{\ufm}[2]{X_{#1} \enbrace{I-P} X_{-#2} }
+
+\newcommand{\ek}{\exp_{p_k}}
+\newcommand{\eki}{\exp_{p_k}^{-1}}
+\newcommand{\emk}{\exp^{-1}_{p_{k+1}}}
+\newcommand{\ekk}{\exp_{p_{k+1}}}
+\newcommand{\ekki}{\exp^{-1}_{p_{k+1}}}
+\newcommand{\Nint}{[-N,N-1]} %for eqs
+\newcommand{\Nintw}{[-N+1,N]} %for inhoms
+\newcommand{\Nints}{[-N,N]} %for solutions
+
+\newcommand{\rayp}{{\Zplus}}
+\newcommand{\rayn}{{\Zminus}}
+
+\newcommand{\imply}{$\Rightarrow\ $}
+
+\newcommand{\indef}[1]{\alert{{#1}}}
+%\texttt
+
+%\newcommand{\devskip}{\vskip-60pt}
+%\newcommand{\devskipcol}{\vskip-35pt}
+%\newcommand{\devskipcols}{\vskip-30pt}
+
+\newcommand{\devskip}{\vskip-60pt}
+\newcommand{\devskipcol}{}
+\newcommand{\devskipcols}{}
+
+
+\theoremstyle{plain} \newtheorem{theorem}{Theorem}
+\theoremstyle{plain} \newtheorem*{theoremnon}{Theorem}
+\theoremstyle{definition} \newtheorem{deff}{Definition}
+\theoremstyle{definition} \newtheorem*{deffnon}{Definition}
+\theoremstyle{remark} \newtheorem{rem}{Remark}
+
+\makeatletter
+\setbeamertemplate{theorem begin}
+{%
+\vspace{0.5em}
+\slshape %ignore body font
+%\begin{\inserttheoremblockenv}
+{%
+\inserttheoremheadfont
+\inserttheoremname
+\inserttheoremnumber
+\ifx\inserttheoremaddition\@empty
+\else\ (\inserttheoremaddition)\fi%
+\inserttheorempunctuation\hskip20pt
+}%
+}
+\setbeamertemplate{theorem end}
+{
+%\end{\inserttheoremblockenv}
+\vspace{0.5em}
+}
+\makeatletter
+
+\DeclareMathOperator{\dist}{dist}
+
+
+\institute[Chebyshev laboratory]{Chebyshev laboratory, Department of Mathematics and Mechanics, Saint Petersburg State University, Saint Petersburg, Russia}
+
+\subject{ICTP 2012}
+
+\title{\huge Analogues  of  Theorems  of  Maizel  And  Pliss  And  Their  Applications  in  The  Shadowing  Theory}
+\author[Dmitry Todorov]{Dmitry Todorov \\ todorovdi@gmail.com}
+\mail{todorovdi@gmail.com}
+
+
+\newlength{\columnheight}
+\setlength{\columnheight}{105cm}
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{frame}
+\devskipcols
+\begin{columns}
+
+% Col1
+\begin{column}{.325\textwidth}
+%
+\parbox[t][\columnheight]{\textwidth}{
+%
+\devskipcol
+%
+%
+\begin{block}{The Concept of Shadowing}
+\begin{minipage}{0.97\textwidth}
+%
+\setlength{\parindent}{1em}	
+%
+\input{1_intro.tex}
+%
+\end{minipage}
+\end{block}
+%
+\begin{block}{Classical Shadowing}
+\begin{minipage}{0.97\textwidth}
+%
+\input{ClassicalShadowing.tex}
+%
+\end{minipage}
+\end{block}
+%
+%
+\begin{block}{Limit Shadowing}
+\begin{minipage}{0.97\textwidth}
+%
+\input{LimitShadowing.tex}
+%
+%
+%
+\end{minipage}
+\end{block}
+%
+%
+\begin{block}{Lipschitz Shadowing}
+\begin{minipage}{0.97\textwidth}
+%
+\input{LipShadowing.tex}
+\input{Lpshad.tex}
+%
+\end{minipage}
+\end{block}
+%
+%
+
+
+
+%\vfill
+
+%\begin{block}{References}
+%\begin{minipage}{0.97\textwidth}
+%\small
+%\vskip-1em
+%%\begin{spacing}{0.8}
+%\input{8_references.tex}
+%%\end{spacing}
+%\end{minipage}
+%\end{block}
+
+}
+
+
+
+\end{column}
+
+
+% Col2
+\begin{column}{.325\textwidth}
+%
+%
+\parbox[t][\columnheight]{\textwidth}{
+%
+\devskipcol
+%
+\begin{block}{LSP \imply SS}
+\begin{minipage}{0.97\textwidth}
+\input{3_shadandstab1.tex}
+\input{3_shadandstab2.tex}
+\end{minipage}
+\end{block}
+%
+\begin{block}{Step \ref{item:shadimplsolv}. Shadowing \imply solvability}
+\begin{minipage}{0.97\textwidth}
+\input{proof1.tex}
+\end{minipage}
+\end{block}
+%
+\begin{block}{Step \ref{item:hypimplstab}. Shadowing \imply solvability}
+\begin{minipage}{0.97\textwidth}
+\input{proof3.tex}
+\end{minipage}
+\end{block}
+%
+\begin{block}{Step \ref{item:solvimplhyp}. Hyperbolicity \imply stability}
+\begin{minipage}{0.97\textwidth}
+\input{proof2.tex}
+\end{minipage}
+\end{block}
+%
+%
+%
+%\begin{block}{$L^p$ Shadowing}
+%\begin{minipage}{0.97\textwidth}
+%%
+%\input{Lpshad.tex}
+%%
+%\end{minipage}
+%\end{block}
+}
+\end{column}
+
+
+% Col3
+\begin{column}{.325\textwidth}
+%
+\parbox[t][\columnheight]{\textwidth}{
+%
+\devskipcol
+%
+\begin{block}{Hyperbolicity of a sequence}
+\begin{minipage}{0.97\textwidth}
+\input{SeqHypDef.tex}
+\end{minipage}
+\end{block}
+%
+%
+\begin{block}{Theorems of Maizel and Pliss}
+\begin{minipage}{0.97\textwidth}
+\input{6_discrthms1.tex}
+\input{6_discrthms2.tex}
+\end{minipage}
+\end{block}
+%
+%
+\begin{block}{New sort of shadowing}
+\begin{minipage}{0.97\textwidth}
+\input{7_decrshad.tex}
+\end{minipage}
+\end{block}
+%
+}
+
+\end{column}
+
+\end{columns}
+
+
+\end{frame}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-PDF-mode: t
+%%% End:

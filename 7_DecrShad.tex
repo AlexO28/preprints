@@ -1,0 +1,22 @@
+Having a method of obtaining structural stability and the generalisation of the Pliss' theorem, it is natural to introduce a new shadowing property to apply this generalisation.
+
+Let $\gamma\geq 0.$
+
+\begin{deffnon}
+A sequence $\seqz{x}{k}$ of points of $M$ is a \indef{$\gamma$-decreasing $d$-pseudotrajectory} if
+\begin{eqnarray*}
+\dist(x_{k+1},f(x_k))& < &d(|k|+1)^{-\gamma},\quad k\in\Zb.
+\end{eqnarray*}
+\end{deffnon}
+
+\begin{deffnon}
+$f$ has \indef{Lipschitz two-sided limit shadowing property with exponent $\gamma$} if there exist $d_0,L>0$ such that for any $\gamma$-decreasing $d$-pseudotrajectory $\{x_k\}$ with $d\leq d_0$ there exists a point $p\in M$ such that
+\begin{eqnarray*}
+\dist(x_{k},f^k(p)) &\leq & Ld(|k|+1)^{-\gamma},\quad k\in\Zb.
+\end{eqnarray*}
+We write $f\in LTSLmSP(\gamma)$ in this case.
+\end{deffnon}
+
+\begin{theoremnon}[Todorov, 2012]
+\alert{$$ SS = LTSLmSP.$$}
+\end{theoremnon}
