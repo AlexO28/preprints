@@ -1,0 +1,905 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\textheight=22cm \voffset=-15mm \textwidth=140mm \hoffset=-10mm \sloppy
+%\title{}
+%\author{}
+%\date{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{razdel}[section]
+\def\therazdel{\thesection.\arabic{razdel}}
+
+\newcommand\razdel[1]{\refstepcounter{razdel}\paragraph{\therazdel. #1}}
+\newtheoremstyle{Mystyle}
+     {\topsep}
+     {\topsep}
+     {\it}%         Body font
+     {}%         Indent amount (empty = no indent, \parindent = para indent)
+     {\bfseries}% Thm head font
+     { }%        Punctuation after thm head
+     { }%     Space after thm head (\newline = linebreak)
+     {\thmnumber{#2.~}\thmname{#1}\thmnote{ #3}.}%         Thm head spec
+\theoremstyle{Mystyle}
+\newtheorem{Theorem}[razdel]{Theorem}
+\newtheorem{Proposition}[razdel]{Proposition}
+\newtheorem{Lemma}[razdel]{Lemma}
+\newtheorem{Corollary}[razdel]{Corollary}
+\newtheorem{Assertion}[razdel]{Assertion}
+\newtheorem{Claim}[razdel]{Claim}
+\newtheorem*{CorBN}{Corollary}
+\newtheorem{Remark}[razdel]{Remark}
+\newtheorem{Hypothesis}[razdel]{Hypothesis}
+%\newtheorem{Britton}[-]{Britton's Lemma}   
+                                       
+\begin{document}
+
+%%%\section{Heisenberg group. Upper estimate.}
+%%%
+%%%Let $H$ be the Heisenberg group $<a,b,c\mid ac=ca, bc=cb, c=[a,b]>$. We have the following matrix representation for $H$:
+%%%
+%%%The element $a$ corresponds to $\left(\begin{array}{ccc} 1 & 1 & 0\\ 0 & 1& 0 \\ 0 & 0 & 1 \end{array}\right)$, the element $b$ corresponds to $\left(\begin{array}{ccc} 1 & 0 & 0\\ 0 & 1& 1 \\ 0 & 0 & 1 \end{array}\right)$, the element $c$ corresponds to $\left(\begin{array}{ccc} 1 & 0 & 1\\ 0 & 1& 0 \\ 0 & 0 & 1 \end{array}\right)$.
+%%%
+%%%Note that $a^m$ corresponds to $\left(\begin{array}{ccc} 1 & m & 0\\ 0 & 1& 0 \\ 0 & 0 & 1 \end{array}\right)$, $b^m$ corresponds to $\left(\begin{array}{ccc} 1 & 0 & 0\\ 0 & 1& m \\ 0 & 0 & 1 \end{array}\right)$. The element $a^nb^m$ corresponds to 
+%%%$$\left(\begin{array}{ccc} 1 & n & 0\\ 0 & 1& 0 \\ 0 & 0 & 1 \end{array}\right)\left(\begin{array}{ccc} 1 & 0 & 0\\ 0 & 1& m \\ 0 & 0 & 1 \end{array}\right)=
+%%%\left(\begin{array}{ccc} 1 & n & mn\\ 0 & 1& m \\ 0 & 0 & 1 \end{array}\right),$$
+%%%the element $b^ma^n$ corresponds to
+%%%$$\left(\begin{array}{ccc} 1 & 0 & 0\\ 0 & 1& m \\ 0 & 0 & 1 \end{array}\right)
+%%%\left(\begin{array}{ccc} 1 & n & 0\\ 0 & 1& 0 \\ 0 & 0 & 1 \end{array}\right)=
+%%%\left(\begin{array}{ccc} 1 & n & 0\\ 0 & 1& m \\ 0 & 0 & 1 \end{array}\right).$$
+%%%Observe that
+%%%$[a^n,b^m]=c^{mn}$ corresponds to
+%%%$$\left(\begin{array}{ccc} 1 & n & mn\\ 0 & 1& m \\ 0 & 0 & 1 \end{array}\right)\left(\begin{array}{ccc} 1 & -n & mn\\ 0 & 1& -m \\ 0 & 0 & 1 \end{array}\right) =
+%%%\left(\begin{array}{ccc} 1 & 0 & mn\\ 0 & 1& 0 \\ 0 & 0 & 1 \end{array}\right).$$
+%%%
+%%%\textbf{Question.} How many elements are contained in $B_r(e)$, the ball of radius $r$?
+%%%
+%%%We assume that $\ell(a)=1$, $\ell(b)=\epsilon$.
+%%%
+%%%Clearly $\left(\begin{array}{ccc} 1 & n & 1\\ 0 & 1& 0 \\ 0 & 0 & 1 \end{array}\right)$ belongs to $B_{r}(e)$ if only and only if $|n|\leq r$.
+%%%
+%%%Clearly $\left(\begin{array}{ccc} 1 & 0 & 0\\ 0 & 1& m \\ 0 & 0 & 1 \end{array}\right)$ belongs to $B_{r}(e)$ if only and only if $|m|\leq r/\epsilon$.
+%%%
+%%%The case of $\left(\begin{array}{ccc} 1 & 0 & n\\ 0 & 1& 0 \\ 0 & 0 & 1 \end{array}\right)$ is much more complicated. If we had $\sqrt{n}\in\mathbb{N}$, then
+%%%$c^n=[a^{\sqrt{n}},b^{\sqrt{n}}]$. Thus $$\ell(c^{n})\geq 2(1+\epsilon)\sqrt{n}.$$
+%%%It seems that in this case
+%%%$$\ell(c^{n})= 2(1+\epsilon)\sqrt{n}.$$
+%%%
+%If $\sqrt{n}\notin\mathbb{N}$, then we are looking for two numbers $n_1,n_2\mathbb{N}$ such that
+%$$n_1+n_2\rightarrow\min,\qquad n_1n_2=n.$$
+%It seems that in this case
+%$$\ell(c^n)=2(n_1+n_2 \epsilon).$$
+%
+%Since $(n+1)^2-n^2 = 2n+1$, we conclude that for any $n\in\mathbb{N}$ there exists $n\leq m\leq n+2\sqrt{n}+1$ such that $\sqrt{m}\in\mathbb{N}$.
+%The problem is that it is not clear whether $\ell(c^{n_1})<\ell(c^{n_2})$. It seems that it is not true. But
+%$$(\ell(c^{n_2})-\ell(c^{n_1})) \leq (2+2\epsilon)(n_2-n_1).$$
+%Thus we have
+%$$-(2+2\epsilon)\sqrt{2n-1} + 2(1+\epsilon)\sqrt{n-2\sqrt{n}-1}\geq\ell(n)\leq (2+2\epsilon)\sqrt{2n+1}+2(1+\epsilon)\sqrt{n + 2\sqrt{n}+1}.$$
+%%%However if $n$ is a prime number, then $[a^n,b]$
+%%%
+%%%Consider the element $x$ that corresponds to $\left(\begin{array}{ccc} 1 & m & k\\ 0 & 1& n \\ 0 & 0 & 1 \end{array}\right)$. %Since
+%$$\left(\begin{array}{ccc} 1 & m & 0\\ 0 & 1& n \\ 0 & 0 & 1 \end{array}\right)\left(\begin{array}{ccc} 1 & 0 & k\\ 0 & 1& 0 \\ 0 & 0 & 1 \end{array}\right) = \left(\begin{array}{ccc} 1 & m & k\\ 0 & 1& n \\ 0 & 0 & 1 \end{array}\right),$$
+%the considered element can be represented as $a^mb^nc^k$, i.e. its length is about (it seems very reasonable)
+%$$|m| + |n\epsilon| + (2+2\epsilon)\sqrt{|k|}$$
+%(if $k$ has $\sqrt{k}\in\mathbb{N}$ and something like it if it does not).
+%%%%%Suppose first that $k\geq mn$; then
+%%%Note that
+%%%$$\left(\begin{array}{ccc} 1 & m & k\\ 0 & 1& n \\ 0 & 0 & 1 \end{array}\right)
+%%%=\left(\begin{array}{ccc} 1 & m & mn\\ 0 & 1& n \\ 0 & 0 & 1 \end{array}\right)
+%%%\left(\begin{array}{ccc} 1 & 0 & k-mn\\ 0 & 1& 0 \\ 0 & 0 & 1 \end{array}\right)=$$
+%%%$$=\left(\begin{array}{ccc} 1 & 0 & 0\\ 0 & 1& n \\ 0 & 0 & 1 \end{array}\right)\left(\begin{array}{ccc} 1 & m & 0\\ 0 & 1& 0 \\ 0 & 0 & 1 \end{array}\right)\left(\begin{array}{ccc} 1 & 0 & k-mn\\ 0 & 1& 0 \\ 0 & 0 & 1 \end{array}\right).$$
+%%%Thus
+%%%$$\ell(x)\geq |m| + |n| + 4\sqrt{|k-mn|}.$$
+%%%
+%%%We will use this upper estimate for $k>mn$.
+%%%Since if $k<mn$, it is possible for $x$ to have $\ell(x)=|m|+|n|$ (or close). For example if there exist $|t_1|\leq|m|$, $|t_2|\leq|n|$ such that $t_1t_2=k$, then
+%%%$$\left(\begin{array}{ccc} 1 & m & k\\ 0 & 1& n \\ 0 & 0 & 1 \end{array}\right)	 =\left(\begin{array}{ccc} 1 & 0 & 0\\ 0 & 1& n-t_2 \\ 0 & 0 & 1 \end{array}\right) 
+%%%\left(\begin{array}{ccc} 1 & t_1 & t_1t_2\\ 0 & 1& t_2 \\ 0 & 0 & 1 \end{array}\right)
+%%%\left(\begin{array}{ccc} 1 & m-t_1 & 0\\ 0 & 1& 0 \\ 0 & 0 & 1 \end{array}\right),
+%%%$$
+%%%i.e.
+%%%$$\ell(x)=m+n.$$
+%%%
+%%%That is why we assume the following estimates:
+%%%$$\ell(x)\geq |m| + |n| + 4\sqrt{|k-mn|},\quad |k|\geq|mn|,$$
+%%%$$\ell(x)\geq |m| + |n|,\quad k\leq|mn|.$$
+%%%
+%%%Thus we need to calculate the number of integer $m,n,k$ such that
+%%%$$|m| + |n| + 4\sqrt{|k-mn|}\leq r,\quad |k|\geq|mn|,$$
+%%%$$|m| + |n|,\quad k\leq|mn|.$$
+%%%
+%%%If we represent every integer as a square with side 1, clearly the desired number of
+%%%integers coincides with volume of this figure. Obviously, the first asymptotical coincides with
+%
+%Clearly it is equivalent to calculating
+%%%$$8\int_{m+n+4\sqrt{k-mn}\leq r, k\geq mn} dm dn dk + \int_{m+n\leq r, k\leq mn} dm dn dk = (*).$$
+%%%(we calculate it for $r$ instead of $r+1$, since we are interested only in the first asymptotical term).
+
+
+
+%%%Let us make the change of variables: 
+%%%$$X=x,\quad Y=y\epsilon,\quad Z=(2+2\epsilon)\sqrt{z}.$$
+%%%Then $dy = dY/\epsilon$, $dz= d(Z^2/(2+2\epsilon)^2) = (ZdZ)/(2(1+\epsilon)^2)$.
+%%%Thus
+%%%$$(*) = \frac{8}{2\epsilon(1+\epsilon)^2}\int_{X+Y+Z\leq r,\quad X,Y,Z\geq 0}Z dZ dY dX. = $$
+%$$=\frac{8}{2\epsilon(1+\epsilon)^2} \int_{0\leq z\leq r}\int_{X+Y+z\leq r,\quad 0\leq X,Y\leq r} Z dY dX dZ.=$$
+%%%$$=\frac{4}{\epsilon(1+\epsilon)^2} \int_{0\leq Z\leq r}\int_{X+Y\leq r-Z, \quad X, Y\geq 0} Z dY dX dZ = \frac{2}{\epsilon(1+\epsilon)^2} \int_{0\leq Z\leq r} Z(r-Z)^2dZ=$$
+%%%$$=\frac{2}{\epsilon(1+\epsilon)^2}\int_{0\leq Z\leq r} Zr^2 - 2rZ^2 + Z^3 dZ
+%%%= \frac{2}{\epsilon(1+\epsilon)^2} (r^4/2 - 2r^4/3 + r^4/4) = \frac{r^4}{6\epsilon(1+\epsilon)^2}.$$
+%%%%\textbf{Question.} To which generating system does it correspond?
+%However now we have two cases. If $\epsilon=1$, then it seems very reasonable that
+%$$\ell(c^n)=4\sqrt{n}.$$
+%But if $\epsilon$ is small, then it seems better to have $\ell{c^{n}}=[a^{n},b]$.
+%%%
+%%%This naive reasoning allows to get the following proposition:
+%%%\begin{Proposition}
+%%%Let $H$ be the Heisenberg group with the standard basis $a,b$, and $\ell(a)=1$, $\ell(b)=\epsilon$ (where $\ell(\cdot)$ denotes length). %Suppose that we know that the standard generating system is the one that has the smallest balls. 
+%%%Then asymptotically
+%%%$$|B_r(e)| \leq \frac{r^4}{6\epsilon(1+\epsilon)^2}.$$
+%%%In particular, for $\epsilon=1$ we have
+%%%$$|B_{r}(e)|\leq  0.04166667r^4  = r^4/24$$
+%%%\end{Proposition}
+%%%
+%%%Basically there is an important gap connected with the problem of exact squares, and there are some minor gaps connected with precise computations of length of elements (but not only upper estimates).
+%%%
+%%%\section{Heisenberg group. Lower estimate.}
+%%%
+%%%Let $H$ be the Heisenberg group with the standard generating set.
+%%%
+%%%It seems reasonable that 
+%%%$$\ell(c^{m^2}) = 4m.$$
+%%%Consider the element $c^k$ with $k$ close to $m^2$ (we assume that $(m-1)^2\leq k\leq (m+1)^2$, hence $m-1\leq\sqrt{k}\leq m+1$). Note that we have
+%%%$$|\ell(c^k) - \ell(c^{m^2})|\leq 4|k-m^2|.$$
+%Note that
+%$$|\ell(c^k) - 4\sqrt{k}|\leq |\ell(c^k) - \ell(c^{m^2})| + |4\sqrt{k} - 4m|\leq 4|k-m^2| + %4$$
+%%%Thus if $|k-m^2|\leq \delta m$ (e.g., $\delta=1/2$), then
+%$$\ell(c^k)\geq 4\sqrt{k} - 2m - 4\geq 4\sqrt{k} - 2\sqrt{k} - 6 = 2\sqrt{k} - 6.$$
+%%%$$\ell(c^k)\leq \ell(c^{m^2}) + 4|k-m^2|\geq 4(m+\delta m).$$
+%%%Consider the element $v = \left(\begin{array}{ccc} 1 & m & k\\ 0 & 1& n \\ 0 & 0 & 1 \end{array}\right)$; then
+%%%$$\ell(v)=|n|+|m|+|f(k)|,$$
+%%%where the function $f:\mathbb{N}\mapsto\mathbb{R}$ has the following property:
+%%%$$f(k)\leq 4(t+\delta t)\qquad t^2 - \delta t\leq k\leq t^2 + \delta t.$$
+%$$4\sqrt{k}\leq f(k)\leq 4k\qquad\forall k.$$
+%$$f(k)\leq 4k\qquad t^2+t/2\leq k\leq (t+1)^2-(t+1)/2.$$
+%Since we are interested in the lower estimate, we assume that $f(k)$ coincides with its upper estimate everywhere (so it is a piecewise constant function).
+%%%
+%%%We need to calculate the number of $0\leq m,n,k\leq r$ such that
+%%%$$|n|+|m|+|f(k)|\leq r.$$
+%%%We use the reasoning from the previous section. Every integer point is assigned to a small cube (i.e. it is its lower left corner). Then the volume of this figure is exactly the number of the integer points. And the volume of the figure asymptotically coincides with
+%%%$$8\int_{n+m+f(k)\leq r,\quad n,m,k\geq0 } dn dm dk = (*)$$
+%%%(to be precise, it asymptotically coincides with this integral for $r+1$, which is asymptotically the same with $r$).
+%%%
+%%%Since we are interested in the lower bound, we assume that $f$ coincides with its upper bound.
+%%%
+%%%We have
+%%%$$(*) \geq 8\sum_{0\leq t\leq r/(4(\delta+1))}\int_{n+m+4(t+\delta t)\leq r, \ldots, t^2 - \delta t\leq k\leq t^2 + \delta t} dn dm dk = $$
+%%%$$=8\sum_{0\leq t\leq r/(4(\delta+1))}\int_{n+m+4(t+\delta(t))\leq r}2\delta t dm dn=
+%%%8\delta \sum_{0\leq t\leq r/(4(\delta+1))}(r - 4(\delta+1)t)^2 t =(**)$$
+%%%Since it is possible to calculate an integral instead of sum,
+%%%$$(**) = 8\delta \int_{0}^{r/(4(\delta+1)} r^2t - 8(\delta+1)t^2r + 16(\delta+1)^2t^3 dt=$$
+%%%$$=8\delta r^4\left(\frac{1}{32(\delta+1)^2} - \frac{1}{24(\delta+1)^2} + \frac{1}{64(\delta+1)^2}\right) = 0.04166667\frac{\delta}{(\delta+1)^2}r^4=(***).$$
+%%%Clearly (***) takes the maximal value, when $\delta=1$. Consequently,
+%%%$$8\int_{n+m+f(k)\leq r,\quad n,m,k\geq0 } dn dm dk\geq 0.01041667 r^4=r^4/96.$$
+%%%
+%%%\section{Generalized Heisenberg group: upper estimate.}
+%%%
+%%%The generalized Heisenberg group has the following faithful matrix representation:
+%%%$$\left(\begin{array}{ccc} 1 & A_{(n)} & c \\ 0 & I_{(n)} & B_{(n)}\\ 0 & 0 & 1,\end{array}\right)$$
+%%%where $A_{(n)}=(a_1,\ldots,a_n)$, $B_{(n)} = (b_{1},\ldots,b_{n})$, $I_{n}$ is the $n$-dimensional identity matrix.
+%%%
+%%%The basis of this group is formed by elements $a_i$, $b_i$ with natural matrix representations. As before multiplying matrices we observe that
+%%%$$\ell(a_i^n)=n,\quad \ell(b_i^n)=n.$$
+%%%Note that
+%%%$$\left(\begin{array}{ccccc} 1& a_1 & 0 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &0\\
+%%%0 & 0 & 1 & 0 & 0\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right)
+%%%\left(\begin{array}{ccccc} 1& 0 & a_2 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &0\\
+%%%0 & 0 & 1 & 0 & 0\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right) = 
+%%%\left(\begin{array}{ccccc} 1& a_1 & a_2 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &0\\
+%%%0 & 0 & 1 & 0 & 0\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right)=$$
+%%%$$=
+%%%\left(\begin{array}{ccccc} 1& 0 & a_2 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &0\\
+%%%0 & 0 & 1 & 0 & 0\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right)\left(\begin{array}{ccccc} 1& a_1 & 0 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &0\\
+%%%0 & 0 & 1 & 0 & 0\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right),$$
+%%%$$\left(\begin{array}{ccccc} 1& a_1 & 0 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &0\\
+%%%0 & 0 & 1 & 0 & 0\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right)
+%%%\left(\begin{array}{ccccc} 1& 0 & 0 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &b_1\\
+%%%0 & 0 & 1 & 0 & 0\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right) = 
+%%%\left(\begin{array}{ccccc} 1& a_1 & 0 & 0 & a_1b_1 \\ 
+%%%0 &1 & 0 & 0 &b_1\\
+%%%0 & 0 & 1 & 0 & 0\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right),$$
+%%%$$
+%%%\left(\begin{array}{ccccc} 1& 0 & 0 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &b_1\\
+%%%0 & 0 & 1 & 0 & 0\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right)
+%%%\left(\begin{array}{ccccc} 1& a_1 & 0 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &0\\
+%%%0 & 0 & 1 & 0 & 0\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right) = 
+%%%\left(\begin{array}{ccccc} 1& a_1 & 0 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &b_1\\
+%%%0 & 0 & 1 & 0 & 0\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right),
+%%%$$
+%%%$$
+%%%\left(\begin{array}{ccccc} 1& a_1 & 0 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &0\\
+%%%0 & 0 & 1 & 0 & 0\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right)
+%%%\left(\begin{array}{ccccc} 1& 0 & 0 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &0\\
+%%%0 & 0 & 1 & 0 & b_2\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right) = 
+%%%\left(\begin{array}{ccccc} 1& a_1 & 0 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &0\\
+%%%0 & 0 & 1 & 0 & b_2\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array} = \right)
+%%%$$
+%%%$$=
+%%%\left(\begin{array}{ccccc} 1& 0 & 0 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &0\\
+%%%0 & 0 & 1 & 0 & b_2\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right)
+%%%\left(\begin{array}{ccccc}
+%%%1& a_1 & 0 & 0 & 0 \\ 
+%%%0 &1 & 0 & 0 &0\\
+%%%0 & 0 & 1 & 0 & 0\\
+%%%0 & 0 & 0 & I_{(n-2)} & 0\\
+%%%0 & 0 & 0 & 0 & 1 \end{array}\right).
+%%%$$
+%%%It can be proved that for the element $c^m$ that corresponds to 
+%%%$\left(\begin{array}{ccc} 1 & 0 & m \\ 0 & I_{(n)} & 0\\ 0 & 0 & 1\end{array}\right)$,
+%%%we have
+%%%$$\ell(c^m)\geq 4\sqrt{m}.$$
+%%%Thus for the element $x$ that corresponds to 
+%%%$\left(\begin{array}{ccc} 1 & A^{(n)} & c^{m} \\ 0 & I_{(n)} & B^{(n)}\\ 0 & 0 & 1\end{array}\right),$
+%%%where $A^{(n)} = (a_1^{m_1},\ldots, a_{n}^{m_n})$, $B^{(n)} = (b_1^{k_1},\ldots, b_{n}^{m_n})$
+%%%we have
+%$\left(\begin{array}{ccccc} 1 & a_{i} & 0 \\ 0 & I_{(n)} 0 & 0\\ 0 & 0 & 0 & B_{(i)}\\ 0 & 0 & 0 & 1,\end{array}\right)$
+
+\section{Upper estimate for the Heisenberg group.}
+
+Consider the Heisenberg group $G$ and its standard matrix representation (which is faithful).  %Then (we believe that, formally, one should write there $-2$, but it is not important).
+Hereinafter, we denote by $\ell(x)$ length of an element $x\in G$.
+We use the following hypothesis (hereinafter, we forget about additive constants):
+
+\begin{Hypothesis}
+\label{Hyp}
+Suppose that
+an element $x\in G$ corresponds to $\left(\begin{array}{ccc} 1& n & k\\ 0 & 1 & m\\ 0 & 0 & 1 \end{array}\right)$; then
+\begin{equation}
+\label{HypForm}
+\ell(x)\geq \min_{1\leq t\leq k} |t| + |k/t| + |m-t| + |n - k/t|.
+\end{equation}
+\end{Hypothesis}
+
+Hypothesis \ref{Hyp} is based on the following Claim:
+\begin{Claim}
+\label{Cl3}
+Suppose that
+an element $x\in G$ corresponds to $\left(\begin{array}{ccc} 1& n & k\\ 0 & 1 & m\\ 0 & 0 & 1 \end{array}\right)$; then
+$$\ell(x)\leq \min_{1\leq t\leq k, t\mid k} |t| + |k/t| + |m-t| + |n - k/t|$$
+(hereinafter, $t\mid k$ means that $t$ is a divisor of $k$).
+\end{Claim}
+
+\begin{proof}
+Consider $t\in\mathbb{Z}$ such that $k/t\in\mathbb{Z}$. Consider the following representation of~$x$:
+$$
+\left(\begin{array}{ccc} 1& n-k/t & 0\\ 0 & 1 & 0\\ 0 & 0 & 1 \end{array}\right)
+\left(\begin{array}{ccc} 1& k/t & 0\\ 0 & 1 & 0\\ 0 & 0 & 1 \end{array}\right)
+\left(\begin{array}{ccc} 1& 0 & 0\\ 0 & 1 & t\\ 0 & 0 & 1 \end{array}\right)
+\left(\begin{array}{ccc} 1& 0 & 0\\ 0 & 1 & m-t\\ 0 & 0 & 1 \end{array}\right)
+.
+$$
+This representation implies Claim \ref{Cl3} immediately.
+\end{proof}
+
+Note that estimate \eqref{HypForm} implies an upper estimate for a number of points in $B(r,G)$ (hereinafter, $B(r,G)$ denotes the ball of radius $r$ in $G$).
+
+Fix an arbitrary $x\in G$ and assume that it corresponds to $\left(\begin{array}{ccc} 1& n & k\\ 0 & 1 & m\\ 0 & 0 & 1 \end{array}\right)$. 
+Without loss o generality we assume that $m,n,k\geq0$.
+Four cases are possible.
+
+\textbf{Case 1.} $n - k/t\geq 0$, $m-t\geq0$, i.e. $k/n\leq t\leq m$. In particular, 
+$$k\leq mn.$$
+
+The right side of \eqref{HypForm} is rewritten as follows:
+$$t+k/t + n-k/t+m-t = m+n.$$
+Note that clearly the previous formula is the best possible lower estimate for length. Consequently in the other $3$ cases we may assume that $k\geq mn$.
+
+Let us calculate the corresponding integral:
+$$\int_{0\leq k\leq mn, 0\leq m+n\leq r}dm dn dk = \int_{0\leq m+n\leq r} mn dm dn = \int_{0\leq m\leq r}\int_{0\leq n\leq r-m} mn dm dn = $$
+$$= \int_{0\leq m\leq r}  \frac{(r-m)^2 m}{2} dn = \int_{0\leq m\leq r} \frac{r^2m}{2} + \frac{m^3}{2} - rm^2 dm=$$
+\begin{equation}
+\label{int1} 
+=\frac{r^4}{4} + \frac{r^4}{8} - \frac{r^4}{3} = (3/8 - 1/3)r^4 = \frac{r^4}{24}.
+\end{equation}
+
+\textbf{Case 2.} $n-k/t\leq 0$, $m-t\geq0$, i.e. $t\leq k/n$, $t\leq m$.
+
+Thus we have $k\geq mn$, $t\leq m\leq k/n$.
+
+The right side of \eqref{HypForm} is rewritten as follows:
+$$t + k/t + k/t - n + m - t = 2k/t - n + m.$$
+
+Clearly the minimum value of this expression is for $t = m$. It is equal to
+$$2k/m - n + m.$$
+
+%The corresponding integral is
+%$$\int_{2k/m - n + m\leq r, mn\leq k} dm dn dk = \int_{mn\leq k\leq (r-m+n)m/2, 0\leq n+m\leq r} dm dn dk =$$
+%$$=\int_{0\leq n \leq r, 0\leq m\leq r-n} (r-m-n)m/2 dm dn= \int_{0\leq n \leq r, 0\leq m\leq r-n} \frac{rm}{2} - \frac{m^2}{2} - \frac{mn}{2} dm dn=$$ 
+%$$\int_{0\leq n\leq r} \frac{r(r-n)^2}{4} - \frac{(r-n)^3}{6} - \frac{n(r-n)^2}{4} dn =$$ 
+%$$=\int_{0\leq n\leq r} \frac{r^3}{4} - \frac{r^2n}{2} + \frac{rn^2}{4}
+%- \frac{r^3}{6} + \frac{r^2n}{2} - \frac{rn^2}{2} + \frac{n^3}{6} - \frac{nr^2}{4} + \frac{n^2r}{2} - \frac{n^3}{4} dn =$$ $$=\int_{0\leq n\leq r} \frac{r^3}{12} -\frac{r^2n}{4} + \frac{rn^2}{4} - \frac{n^3}{12} dn = \frac{r^4}{12} - \frac{r^4}{8} + \frac{r^4}{12} - \frac{r^4}{48} = \frac{r^4}{48}.$$
+
+\textbf{Case 3.} $n-k/t\geq 0$, $m-t\leq0$, i.e., $t\geq k/n$, $t\geq m$.
+
+Since we are interested in the case $k\geq mn$, we have $m\leq k/n$.
+
+The right side of formula \eqref{HypForm} is rewritten as follows:
+$$t + k/t + n-k/t + t-m = 2t - m + n.$$
+Clearly, in order to calculate the minimum of this expression we need to put $t = k/n$. The minimum is
+$$2k/n - m + n.$$
+
+Consideration of this case does not give anything new.
+
+\textbf{Case 4.} $n-k/t\leq 0$, $m-t\leq 0$, i.e., $m\leq t\leq k/n$. Note that we have
+$$mn\leq k.$$
+
+The right side of formula \eqref{HypForm} is rewritten as follows:
+\begin{equation}
+\label{lenest}
+t + k/t + k/t - n + t - m = 2t + 2k/t - n - m.
+\end{equation}
+
+\textbf{Case 4a.} $m\leq \sqrt{k}\leq k/n$, i.e. $m\leq \sqrt{k}$, $n\leq \sqrt{k}$.
+
+In this case the minimum value of \eqref{lenest} is attained for $t=\sqrt{k}$ and it is equal to 
+$$4\sqrt{k} - n - m.$$
+
+Note that 
+$$4\sqrt{k} - n - m\leq 2k/n - m + n,\quad 4\sqrt{k} - n - m\leq 2k/m - n + m.$$
+Indeed, for example, the second formula is equivalent to
+$$2m + 2k/m - 4\sqrt{k} = 2(\sqrt{m} - \sqrt{k/m})^2\geq 0.$$
+
+The corresponding integral is
+$$\int_{4\sqrt{k} - n - m \leq r, m\leq\sqrt{k}, n\leq\sqrt{k}} dm dn dk = (\mbox{put } z=\sqrt{k}) =\int_{4z - n - m\leq r, m\leq z, n\leq z} 2z dz dm dn = $$
+Using symmetry allows us to rewrite the integral as follows:
+$$
+=\int_{n\leq z\leq (r+m+n)/4, m\leq n}4z dz dm dn=
+$$
+(note that $m\leq n\leq (r+m)/3$ implies that $m\leq r/2$)
+$$=\int_{n\leq (r+m)/3, m\leq n, m\leq r/2} \frac{(r+m+n)^2}{8} - (2n^2) dm dn =$$
+%$$=\int_{n\leq (r+m)/3, m\leq n, m\leq r/2} \frac{(r+m+n)^2}{8} - (2n^2) dm dn =$$
+%($m\leq r/2$ follows from $(r+m)/3\leq r$, if we consider $(r+m)/3\geq r$, then the integral is rewritten as $\int_{0\leq n\leq r, m\leq n, m\geq r/2}$)
+%Let us introduce $x = m+n$, then $m = x - n$. Note that
+%$$\left(\begin{array}{cc} \frac{dm}{dx} & \frac{dm}{dn} \\
+%\frac{dn}{dx} & \frac{dn}{dn} \end{array}\right) = 
+%\left(\begin{array}{cc} 1 & -1\\ 0 & 1 \end{array}\right),$$
+%hence 
+%the corresponding jacobian is 1.
+%$$= \int_{0\leq x\leq r, x/2\leq n\leq x} \frac{r^2}{16} + \frac{x^2}{16} + \frac{rx}{8} - n^2 dm dx = \int_{0\leq x\leq r} \frac{xr^2}{32} + \frac{x^3}{32} + \frac{rx^2}{16} - \frac{x^3}{3} + \frac{x^3}{24} dx=$$
+%$$=\int_{0\leq x\leq r} \frac{xr^2}{32} + \frac{rx^2}{16} - \frac{25x^3}{96} dx=
+%\frac{r^4}{64} + \frac{r^4}{48} - \frac{25r^4}{384} = $$
+$$=\int_{m\leq n\leq (r+m)/3, 0\leq m\leq r/2} \frac{r^2}{8} + \frac{m^2}{8} - \frac{15n^2}{8} + \frac{rm}{4} + \frac{rn}{4} + \frac{mn}{4} dm dn =$$
+$$\int_{0\leq m\leq r/2} \left(\frac{r^2}{8} + \frac{m^2}{8} + \frac{mr}{4}\right)\left(\frac{r-2m}{3}\right) 
+-\frac{5(r+m)^3}{8\cdot 27} + \frac{5m^3}{8} + \frac{(r+m)(r+m)^2}{9\cdot 8} - \frac{(r+m)m^2}{8} dm=$$
+$$=\int_{0\leq m\leq r/2}\frac{r^3}{24} + \frac{m^2r}{24} + \frac{mr^2}{12} - \frac{r^2m}{12} - \frac{m^3}{12} - \frac{m^2r}{6} - \frac{r^3}{4\cdot 27} - \frac{r^2m}{36} -
+\frac{rm^2}{36} - \frac{m^3}{4\cdot 27} + 5\frac{m^3}{8} - \frac{rm^2}{8} - \frac{m^3}{8} dm=$$
+\begin{equation}
+\label{int2}
+= \int_{0\leq m\leq r/2} \frac{7r^3}{8\cdot 27} - \frac{5m^2r}{18} - \frac{mr^2}{36} + \frac{11m^3}{27} dm = \frac{7r^4}{16\cdot 27} - \frac{5r^4}{27\cdot 16} - \frac{r^4}{9\cdot 32} + \frac{11r^4}{4\cdot 27\cdot 2^4} = \frac{13r^4}{1728}.
+\end{equation}
+
+\textbf{Case 4b.} $\sqrt{k}\leq m\leq k/n$, i.e. $n\leq \sqrt{k}\leq m$.
+
+In this case the minimum value of \eqref{lenest} is attained for $t=m$ and is equal to
+$$m + 2k/m - n,$$
+which coincides with Case 2.
+
+Let us compare Cases 2 and 3. Note that 
+$$m + 2k/m - n\leq 2k/n - m + n$$
+$$m + k/m \leq k/n + n$$
+$$m-n\leq k(m-n)/mn$$
+$$(m-n)(mn-k)/(mn)\leq 0.$$
+We see that Case 2 is better than Case 3 if $m\geq n$, which we have by assumptions of Case 4b.
+
+Thus we need to calculate the following integral:
+%$$\int_{n\leq\sqrt{k}\leq m, mn\leq k} m + 2k/m - n dm dn dk = \int_{\sqrt{mn}\leq z\leq m, n\leq m} 2zm + 4z^3/m - 2zn dz dm dn = $$
+%$$=\int_{n\leq m\leq r, 0\leq n\leq r} m^3 - m^2n - m^2n + mn^2 + m^3 - mn^2 dm dn = \int_{n\leq m\leq r, 0\leq n\leq r} 2m^3 - 2m^2n dm dn = $$
+%$$=\int_{0\leq n\leq r}\frac{r^4}{2} - \frac{n^4}{2} - \frac{2nr^{3}}{3} + \frac{2n^4}{3} dn = \int_{0\leq n\leq r} \frac{r^4}{2} + \frac{n^4}{6} - \frac{2nr^3}{3} = O(r^5)$$
+%$$= \int_{n\leq m, m\leq r} m^3 - n^2m + m^3 - n^3/m - m^2n + n^{3} dm dn =$$ 
+%$$= \int_{n\leq r} \frac{r^4}{4} - \frac{n^4}{4} - \frac{n^2r^2}{2} + \frac{n^4}{2} + \frac{r^4}{4} - \frac{n^4}{4} + 2n^3/r^2 - 2n^3/n^2 - \frac{r^3n}{3} + \frac{n^4}{3} + n^3r - n^4 dn.
+%$$
+%$$=\int_{n\leq r} \frac{r^4}{2} - \frac{2n^4}{3} - \frac{n^2r^2}{2} + \frac{2n^3}{r^2} - 2n - \frac{r^3n}{3} + n^3r dn =$$
+$$\int_{n\leq\sqrt{k}\leq m\leq r, mn\leq k, m + 2k/m - n\leq r}  dm dn dk = (\mbox{put } z=\sqrt{k}) = $$ 
+$$=\int_{\sqrt{mn}\leq z\leq m, n\leq m\leq r,  z\leq \sqrt{(r+n-m)m/2}} 2zdz dm dn = $$
+$$=\int_{\sqrt{mn}\leq z\leq m, n\leq m, m\leq (r+n)/3} 2z dz dm dn 
++ \int_{\sqrt{mn}\leq z\leq \sqrt{(r+n-m)m/2}, n\leq m, n\leq 3m-r} 2z dz dm dn = (*).$$
+We start from the calculation of the first integral:
+$$=\int_{\sqrt{mn}\leq z\leq m, n\leq m, m\leq (r+n)/3} 2z dz dm dn
+= \int_{n\leq m\leq (r+n)/3, n\leq r/2} m^2 - mn dm dn = 
+$$
+$$= \int_{0\leq n\leq r/2} \frac{(r+n)^3}{3^4} - \frac{n^3}{3} - \frac{(r+n)^2n}{18} + \frac{n^3}{2} dn =$$
+$$= \int_{0\leq n\leq r/2} \frac{r^3}{3^4} + \frac{r^2n}{27} + \frac{rn^2}{27} + \frac{n^3}{3^4} - \frac{n^3}{3} - \frac{r^2n}{18} - \frac{n^3}{18} - \frac{rn^2}{9} + \frac{n^3}{2} dn=
+$$
+\begin{equation}
+\label{int3}
+\int_{0\leq n\leq r/2} \frac{r^3}{3^4} - \frac{r^2n}{2\cdot 27} - \frac{2rn^2}{27} + \frac{10n^3}{3^4} dn = \frac{r^4}{2\cdot 3^4} - \frac{r^4}{16\cdot 27}
+- \frac{r^4}{4\cdot 3^4} + \frac{5r^4}{32\cdot 3^4} = \frac{7r^4}{2592}
+\end{equation}
+
+Now let us calculate the second integral in (*):
+$$\int_{\sqrt{mn}\leq z\leq \sqrt{(r+n-m)m/2}, n\leq m, n\leq 3m - r} 2z dz dm dn= 
+\int_{n\leq m, n\leq 3m - r, m+n\leq r} \frac{rm}{2} + \frac{nm}{2} - \frac{m^2}{2} - mn dm dn=
+$$
+$$=\int_{n\leq r-m, r/2\leq m\leq r} \frac{rm}{2} - \frac{nm}{2} - \frac{m^2}{2} dm dn + 
+\int_{n\leq 3m - r, r/3\leq m\leq r/2} \frac{rm}{2} - \frac{nm}{2}-\frac{m^2}{2} dm dn = (**)$$
+We start from calculation of the first integral in (**):
+$$\int_{n\leq r-m, r/2\leq m\leq r} \frac{rm}{2} - \frac{nm}{2} - \frac{m^2}{2} dm dn = 
+\int_{r/2\leq m\leq r} (r-m)\left(\frac{rm}{2} - \frac{m^2}{2}\right) - \frac{m(r-m)^2}{4} dm=$$
+$$=\int_{r/2\leq m\leq r} \frac{r^2m}{2} - \frac{rm^2}{2} - \frac{rm^2}{2} + \frac{m^3}{2} - \frac{r^2m}{4} - \frac{m^3}{4} + \frac{rm^2}{2} dm=$$
+\begin{equation}
+\label{int4}
+=\int_{r/2\leq m\leq r} \frac{r^2m}{4} - \frac{rm^2}{2} + \frac{m^3}{4} dm = 
+\frac{r^4}{8} - \frac{r^4}{32} - \frac{r^4}{6} + \frac{r^4}{48} + \frac{r^4}{16} - \frac{r^4}{256} = \frac{5r^4}{768}
+\end{equation}
+Now let us calculate the second integral in (**):
+$$\int_{n\leq 3m - r, r/3\leq m\leq r/2} \frac{rm}{2} - \frac{nm}{2}-\frac{m^2}{2} dm dn
+= \int_{r/3\leq m\leq r/2} \left(\frac{rm}{2} - \frac{m^2}{2}\right)(3m-r) - \frac{m(3m-r)^2}{4}dm$$
+$$= \int_{r/3\leq m\leq r/2} \frac{3rm^2}{2} - \frac{3m^3}{2} - \frac{r^2m}{2} + \frac{rm^2}{2} - \frac{9m^3}{4} - \frac{mr^2}{4} + \frac{3rm^2}{2} dm =$$ 
+\begin{equation}
+\label{int5}
+\int_{r/3\leq m\leq r/2} \frac{7rm^2}{2} - \frac{15m^3}{4} - \frac{3mr^2}{4} dm = \frac{7r^4}{16\cdot 3} - \frac{7r^4}{2\cdot 3^4} - \frac{15r^4}{2^8} + \frac{5r^4}{16\cdot 27} - \frac{3r^4}{32} + \frac{3r^4}{8\cdot 9} = \frac{73r^4}{20736}
+\end{equation}
+
+Summing \eqref{int1}, \eqref{int2}, \eqref{int3}, \eqref{int4}, and \eqref{int5} (we multiply by 2 the last 3 integrals because of the symmetry between $m$ and $n$)
+and taking into consideration the symmetry factor of $8$,
+ we get the following upper estimate for $|B(r,G)|$
+$$|B(r,G)|\leq 8\cdot\left(\frac{r^4}{24} + \frac{13r^4}{1728} + \frac{2\cdot 7r^4}{2592} + \frac{2\cdot 5r^4}{768} + \frac{2\cdot 73r^4}{20736}\right) \approx 0.5972 r^4.
+$$
+Since the asymptotic volume is equal to
+\begin{equation}
+\label{AsVolDef}
+AV(G):=\lim \mbox{hd(G)}\frac{B(r,G)}{r^{n}},
+\end{equation}
+where $n$ is dimension of the group (4 for the Heisenberg group) and
+$$hd(H_{3}) = \frac{4!}{2^4} = \frac{3}{2}$$
+is homogeneous dimension of the group,
+the upper estimate for the asymptotic volume is about $0.8958$.
+
+\begin{Remark}
+We are able to get this upper estimate only if Hypothesis \ref{Hyp} holds.
+It seems that the asymptotic volume is equal to 1, and thus it seems that Hypothesis~\ref{Hyp} does not hold.
+\end{Remark}
+
+\section{Lower estimate for the Heisenberg group.}
+
+We use the following simple claim:
+
+\begin{Claim}
+\label{Cl4}
+Consider an element $z^{k}$ with the matrix representation
+$
+\left(\begin{array}{ccc} 1& 0 & k\\ 0 & 1 & 0\\ 0 & 0 & 1 \end{array}\right).
+$
+Choose $r$ such that $$r^2\leq k\leq (r+1)^2.$$
+Then 
+\begin{equation}
+\label{Cl4eq}
+\ell(z^k)\leq 5\sqrt{k}
+\end{equation}
+\end{Claim}
+\begin{proof}
+First of all assume that $r^2\leq k\leq r^2 + r$.
+Then the representation
+$$
+z^{r^2}=
+\left(\begin{array}{ccc} 1& r & 0\\ 0 & 1 & 0\\ 0 & 0 & 1 \end{array}\right)
+\left(\begin{array}{ccc} 1& 0 & 0\\ 0 & 1 & r\\ 0 & 0 & 1 \end{array}\right)
+\left(\begin{array}{ccc} 1& r & 0\\ 0 & 1 & 0\\ 0 & 0 & 1 \end{array}\right)
+\left(\begin{array}{ccc} 1& 0 & 0\\ 0 & 1 & r\\ 0 & 0 & 1 \end{array}\right)
+$$
+implies
+$$\ell(z^{r^2})\leq 4r\leq 4\sqrt{k},$$
+$$|k - r^2|\leq r\leq \sqrt{k}.$$
+We observe that \eqref{Cl4eq} holds.
+
+Next assume that $r^2+r<k\leq (r+1)^2$.
+Then, similarly,
+$$\ell(z^{(r+1)^2})\leq 4(r+1)\leq 4\sqrt{k}+4,$$
+$$|k-(r+1)^2|\leq |r+1|\leq\sqrt{k}+1,$$
+which implies \eqref{Cl4eq}
+(the additive constant is not important, that is why we omit it;
+we used a very rough estimate $\ell(z^t)\leq t+1$ and we used it for comparatively small~$t$%%% t=yx :::: t and 1
+).
+\end{proof}
+
+Now consider an element $x$ given by the representation
+$
+\left(\begin{array}{ccc} 1& m & k\\ 0 & 1 & n\\ 0 & 0 & 1 \end{array}\right)
+$
+and consider an element $\bar{x}_t$ (hereinnafter, $\bar{}$ corresponds to round-off) given by the representation
+$$
+\left(\begin{array}{ccc} 1& m & \bar{t}\bar{\frac{k}{t}}\\ 0 & 1 & n\\ 0 & 0 & 1 \end{array}\right),
+$$
+where $1\leq t\leq k$. 
+
+Using the estimate
+$$|k - \bar{t}\bar{k/t}|\leq |t\cdot k/t - \bar{t}\cdot k/t|
++ |\bar{t}\cdot k/t - \bar{t}\cdot \bar{k/t}|\leq (|k/t| + |t|)/2 + 1/4$$
+and applying Claim \ref{Cl4} to $z^{k - \bar{t}\bar{k/t}}$,
+we conclude that
+$$|\ell(x) - \ell(\bar{x_t})|\leq \frac{5}{\sqrt{2}}\sqrt{(|k/t| + |t| + 1/2)}.$$
+%%%Carnot group!!!!
+Thus we get a more refined version of Claim \ref{Cl3}:
+$$\ell(x)\leq \min_{1\leq t\leq k} |\bar{t}| + |\bar{k/t}| + |m-\bar{t}| + |n-\bar{k/t}|
++ \frac{5}{\sqrt{2}}\sqrt{(|k/t| + |t| + 1/2)},$$
+$$\ell(x)\leq \min_{1\leq t\leq k} |t| + |k/t| + |m - t| + |n - k/t| + 2 + \frac{5}{\sqrt{2}}\sqrt{(|k/t| + |t| + 1/2)}.$$
+
+Fix a small number $\epsilon$. We claim that there exists a number $K$ such that for all $k\geq K$ and all $1\leq t\leq k$
+\begin{equation}
+\label{est0}
+\sqrt{|t| + |k/t|} \leq \epsilon(|t|+|k/t|).
+\end{equation}
+Indeed, this expression is equivalent to
+$$1/\epsilon^2\leq |t| + |k/t|.$$
+Since
+$$\min_{1\leq t\leq k}|t| + |k/t| = 2\sqrt{k},$$ 
+for $K\geq 1/(4\epsilon^4)$ we have \eqref{est0}. Clearly \eqref{est0} implies
+(taking into consideration the upper estimate and the fact that it is sufficient to consider only $k\geq K$ from the asymptotical point of view)
+$$\int_{\min_{1\leq t\leq k} |t| + |k/t| + |m-t| + |n-k/t|
++ \frac{5}{\sqrt{2}}(|k/t| + |t| + 1/2)\leq r} dm dn dk\geq $$
+$$\geq\int_{\min_{1\leq t\leq k} |t| + |k/t| + |m-t| + |n-k/t|\leq r} (1+\epsilon)^4dm dn dk \geq (1+\epsilon)^4 0.5972 r^4.$$
+Thus we proved the following Theorem:
+\begin{Theorem}
+\label{Th1}
+Let $H$ be the Heisenberg group. Then
+$$AV(H)\geq 0.8958.$$
+\end{Theorem}
+
+\section{Lower estimate for the product of a generalised Heisenberg group and an abelian group.}
+
+\begin{Theorem}
+\label{Th2}
+%Suppose that the considered group $G$ is a direct product of the Heisenberg group $H$ and an abelian group $\mathbb{Z}^N$. 
+Let $G$ be a direct product of the Heisenberg group $H_{3}$ and an abelian group $\mathbb{Z}^{N}$. Then 
+%$$|B_{G}(r,e)| \geq \frac{2^{N+4}}{(N+4)!}r^{N+4},$$
+$$AV(G)\geq 0.8958.$$
+\end{Theorem}
+
+\begin{proof}
+Note that
+\begin{equation}
+\label{est1}
+|B(r,G)| = \int_{0\leq s\leq r} |S(s,\mathbb{Z}^N)||B(r-s,H)|ds.
+\end{equation}
+We use the following lemma:
+
+\begin{Lemma}
+\label{Lem1}
+Asymptotically
+$$|S(r,\mathbb{Z}^N)| = \frac{2^N}{(N-1)!}r^{N-1}.$$
+\end{Lemma}
+
+\begin{proof}
+Let us give here an inductive reasoning that allows to estimate $|S(r,\mathbb{Z}^N)|$.
+Naturally
+$$|S(r,\mathbb{Z}^N)| = c_N r^{N-1} + o(r^{N-1}).$$
+Our goal is to estimate $c_N$.
+Note that
+$$c_Nr^{N-1} = c_{N-1}r^{N-2} + 2\sum_{1\leq k\leq r}|c_{N-1}(r-k)^{N-2}|.$$
+Passing from the sum to integral by standard methods we conclude that asymptotically
+$$c_Nr^{N-1} = 2\int_{1\leq k\leq r}c_{N-1} (r-k)^{N-2} dk = 2c_{N-1}\frac{r^{N-1}}{N-1} + o(r^{N-1}).$$
+Since $c_1 = 2$,
+$$c_N = \frac{2^N}{(N-1)!}.$$
+\end{proof}
+
+Thus by \eqref{est1} and using the lower estimate for volume of a ball in the Heisenberg group,
+$$|B(r,G)| \geq 0.5972 \frac{2^{N}}{(N-1)!}\int_{0\leq s\leq r} s^{N-1}(r-s)^4 ds=
+0.5972 \frac{2^{N}}{(N-1)!}r^{N+4}\int_{0\leq s\leq 1} s^{N-1}(1-s)^4 =$$
+$$=0.5972 \frac{2^{N}}{(N-1)!}r^{N+4} \mathcal{B}(N,5)=$$
+(hereinafter, we denote by $\mathcal{B}(m,n)$ the $\beta$-function)
+$$0.5972\frac{2^{N}}{(N-1)!}r^{N+4}\frac{(N-1)! 4!}{(N+4)!} = 0.8958 \frac{2^{N+4}}{(N+4)!}r^{N+4}.$$
+Now by \eqref{AsVolDef} and since 
+$$hd(H_{3}\times \mathbb{Z}^{N}) = \frac{(N+4)!}{2^{N+4}},$$
+$$AV(H_3\times \mathbb{Z}^N) \geq 0.8958,$$
+which proves Theorem \ref{Th2}.
+\end{proof}
+
+\begin{Theorem}
+\label{Th2}
+Consider $G = H_{2N+1}\times \mathbb{Z}^{M}$ (where $H_{2N+1}$ is the generalized Heisenberg group). Then
+$$AV(G)\geq 0.8958.$$
+\end{Theorem}
+
+\begin{proof}
+ Indeed, by ''forgetting relations'' we can represent $G$  as
+$H_{3}\times \mathbb{Z}^{2N-2 + M}$. Clearly
+$B(r,G)\subset B(r, H_{3}\times \mathbb{Z}^{2N-2} + M)$, hence 
+$$0.8958\leq AV(H_{3}\times \mathbb{Z}^{2N-2 + M})\leq AV(G).$$
+which allows us to get a lower estimate for asymptotic volume of $H_{2N+1}$.
+Similarly using
+$$0.8958\leq AV(H_{3}\times \mathbb{Z}^{2N+M-2})\leq AV(H_{2N+1}\times \mathbb{Z}^{M})$$
+we can get a lower estimate for asymptotic volume of $H_{2N+1}\times \mathbb{Z}^M$.
+\end{proof}
+
+%TODO list
+%
+%1) Upper estimate. How to prove rigorously the formula for the length?
+%2) Using $\beta$-functions, differentiating asymptotic equalities and calculating we concluded that the LOWER estimate of the asymptotic volume is equal to $1$ for the product of (generalized) Heisenberg group and abelian group. 
+%
+%To get the lower bound for the asymptotic volume for the generalised Heisenberg group we used the idea of reducing the problem to the product of the Heisenberg group and abelian group. It worked only for the lower bound.
+%
+%3) free nilpotent groups
+%
+%4) Heisenberg group. The case when the vertical element has length $\epsilon$. 
+
+We also need the following generalization of Lemma \ref{Lem1}:
+
+\begin{Lemma}
+Consider $H_3\times \mathbb{Z}^{N}$. Then
+$$S_{H_3\times \mathbb{Z}^{N}}(r,e)\geq 0.5972\cdot \frac{2^{N} 4!}{(N+4!)}r^{N+3}.$$
+\end{Lemma}
+
+\begin{proof}
+
+In this proof we denote by $w$ the component in $H_{3}$ of a point in $S_{H_{3}\times \mathbb{Z}^{N}}(r,e)$, and by $z_{j}$ the corresponding component in $\mathbb{Z}_{j}$. 
+
+Note that
+$$S_{H_{3}\times \mathbb{Z}^{N}}(r,e) = \int_{|w| + |z_1| + \ldots + |z_{N}| = r} dz_{1}\ldots dz_{N} dw = $$
+$$=\int_{|w|\leq r - t, |z_{1}| + \ldots + |z_{N}| = t, 0\leq t\leq r} dw dz_{1}\ldots dz_{N} dt = \int_{|z_{1}| + \ldots + |z_{N}| = t} B_{H_{3}}(r-t, e)dz_{1}\ldots dz_{N} dt=(*)$$
+Using the lower estimate for volume of a ball in $H_3$ obtained at the end of Section~2, we conclude that
+$$(*)\geq 0.5972 \int_{|z_{1}| + \ldots + |z_{N}| = t}\int_{0\leq t\leq r} (r-t)^4 dz_{1}\ldots dz_{N} dt = (**).$$
+By Lemma \ref{Lem1} we conclude that
+$$(**)=0.5972\int_{0\leq t\leq r} (r-t)^4\frac{2^N}{(N-1)!}t^{N-1} = 0.5972\frac{2^{N}}{(N-1)!} \mathcal{B}(N, 5) r^{N+3}=$$
+$$=\frac{0.5972\cdot 2^{N} (N-1)! 4!}{(N-1)!(N+4)!}r^{N+3}=0.5972\cdot \frac{2^{N} 4!}{(N+4!)}r^{N+3}.$$ 
+
+
+\end{proof}
+
+\section{$k$-step nilpotent groups.}
+
+Let $G$ be a $2$-step nilpotent group. Denote by $m$ the number of basis elements of $G$ and by $n$ the number of basis elements of $[G,G]$.
+
+In $G$ any element has a representation as
+$$g = \prod_{1\leq i\leq m}g_i^{\alpha_i}\prod_{1\leq j\leq n,1\leq k<j} g_{j,k}^{\beta_{j,k}},$$
+where $\{g_1,\ldots, g_n\}$ is a basis of $G$ and $\{g_{j,k}\}_{1\leq k<j\leq n}$ is a basis of $[G,G]$. 
+Note that this representation might not be unique. However it is unique for 2-step Carnot groups (hence, for the 2-step free nilpotent group too).
+
+We use the following
+
+\begin{Claim}
+\label{Cl0}
+ For any $h_1,h_2\in G$, $m,n\in\mathbb{Z}$ 
+$$[h_1,h_2]^{mn} = [h_1^{m},h_2^{n}].$$
+\end{Claim}
+
+Let us calculate an upper estimate for $\ell(g_{j,k}^s)$, where $s\in\mathbb{N}$. At first, we suppose that $s=p^2$, i.e. $s$ is an exact square. Using representation 
+$g_{j,k}^{p^2} = [g_{j}^{p},g_{k}^{p}]$, we observe that
+$$\ell(g_{j,k}^{p^2}) \leq 4p.$$
+Now suppose that
+$$s=p^2+t,\qquad -p\leq t\leq p;$$
+then, using the representation $g_{j,k}^{s}=g_{j,k}^{p^2}[g_{j}^{t},g_{k}]$, we observe that (asymptotically)
+\begin{equation}
+\label{expans}
+\ell(g_{j,k}^{s})\leq 4p + \ell(g_{j,k}^t)\leq 4p + 2|t|\leq 6p\leq 6\sqrt{s}
+\end{equation}
+(for simplicity we forget about additive constants and other members of lower asymptotics).
+
+Consider a natural embedding of $G$ in $\mathbb{Z}^{m}\times\mathbb{Z}_{2}^{n}$, where  
+$\mathbb{Z}_{2}^{n}$ is $\mathbb{Z}$ with the following nonstandard metric:
+$$|(z_1,\ldots,z_n)| = \sum_{i=1}^{n}6\sqrt{|z_i|}.$$
+Note that this embedding is surjective and is an expansion (in case of a Carnot group it is an injection). 
+
+%Let us prove that it is an expansion.
+Indeed, in order to prove that it is an expansion, it is sufficient to prove that
+$|g|_{\mathbb{Z}^{m}\times\mathbb{Z}_{2}^{n}}\geq |g|_{G}$ for any $g\in G$, which follows from \eqref{expans}.
+
+Thus $B(r,G)\supset B(r, \mathbb{Z}^{m}\times\mathbb{Z}_{2}^{n})$. We will calculate
+$F(m,n) := B(r,\mathbb{Z}^{m}\times\mathbb{Z}_{2}^{n})$ by induction.
+ We know that $F(1,0) = r$ (later we take into account the multiplicative factor, $2^{m+n}$). Clearly $F(m,n) = C(m,n)r^{m+2n}$. We want to find all $C(m,n)$.
+
+Let us pass from $F(m-1,n)$ to $F(m,n)$. Note that
+$$F(m,n) = \int_{0\leq t\leq r} C(m-1,n)(r-t)^{m-1+2n} dt = \frac{C(m-1,n)}{m+2n}r^{m+2n}.$$
+Let us pass from $F(m,n-1)$ to $F(m,n)$. Note that
+$$F(m,n) = \int_{0\leq 6\sqrt{t}\leq r} C(m,n-1)(r-6\sqrt{t})^{m-2+2n}dt.$$
+Put $s = 6\sqrt{t}$, then $t=s^2/6^2$, and
+$$F(m,n) = \int_{0\leq s\leq r}2C(m,n-1)(r-s)^{m-2+2n}s/6^2 ds=$$ 
+$$=C(m,n-1)\frac{2(m-2+2n)!}{6^2(m+2n)!}r^{m+2n} = \frac{2C(m,n-1)}{6^2(m+2n)(m+2n-1)} r^{m+2n}.$$
+
+Note that 
+\begin{equation}
+\label{2stepres}
+C(m,n) =\frac{2^n C(m,0)}{6^{2n}(m+2n)\ldots (m+1)}  =  \frac{2^n C(1,0)}{6^{2n}(m+2n)!} = \frac{2^n}{6^{2n}(m+2n)!}.
+\end{equation}
+
+Note that we forgot the multiplicative factor of $2^{m+n}$ in the numerator, and we did not consider the contribution of homogeneous dimension $(m+2n)!/2^{m+2n}$ (also in the numerator). %In our case $n = m(m-1)/2$. Thus $m+2n = m^2$.  
+To summarize, the lower estimate for the asymptotic volume is:
+$1/6^{2n}$.
+
+%\textbf{Remark.} Analogous reasoning works for $k$-nilpotent Carnot groups. In this case the lower estimate is the following:$$\frac{2^{m+n}2^{n_1}3^{n_2}\ldots k^{n_k}}{(12)^{2n_1} (16)^{3n_2}\ldots (4+4k)^{kn_k}}.$$
+
+Now let $G$ be a $k$-step nilpotent group. 
+Denote by $m$ dimension of $G$, and by $n_1,\ldots, n_{k-1}$ dimensions of its commutator subgroups. 
+
+%We use the following analog of Claim \ref{Cl0}:
+Note that Claim \ref{Cl0} holds for $k$-step Carnot groups.
+
+%\begin{Claim}
+%\label{Cl1}
+%For any $s\leq k$ and any $h_1,\ldots, h_{s}\in G$, $m_1,\ldots, m_{s}\in\mathbb{Z}$
+%$$[\ldots[[h_1,h_2],h_3]\ldots, h_{s}]^{m_1m_2\ldots m_s}
+%= [\ldots[[h_1^{m_1},h_2^{m_2}],h_{3}^{m_3}]\ldots, h_{s}^{m_s}].$$
+%\end{Claim}
+
+Besides, we use the following:
+
+\begin{Claim}
+\label{Cl2}
+For any $1\leq s\leq k$, any $g_{i_{1},\ldots, i_{s}}=[\ldots[g_{i_1},g_{i_2}]\ldots, g_{i_s}]$, and any $t\in\mathbb{Z}$
+$$\ell(g_{i_1,\ldots, i_{s}}^{t})\leq c_{s}|t|^{1/s},$$
+where the numbers $\{c_{s}\}_{1\leq s\leq k}$ are defined by
+\begin{equation}
+\label{cdef}
+c_{s}=6c_{s-1} + 2,\qquad c_{1}=1.
+\end{equation}
+\end{Claim}
+
+\begin{proof}
+We use induction. Without loss of generality, we assume that $t>0$.
+
+First suppose that $|t|^{1/s}\in\mathbb{N}$.
+Using the representation 
+$$g_{i_1,\ldots, i_{s}}^{t} = [g_{i_{1},\ldots, i_{s-1}}^{t^{1 - 1/s}}, g_{i_s}^{t^{1/s}}],$$ 
+we conclude that
+$$\ell(g_{i_1,\ldots, i_{s}}^{t})\leq 2c_{s-1}t^{1/s} + 2t^{1/s} = 2(c_{s-1} + 1)t^{1/s}.$$
+Now let us consider the general case.
+Choose $p\in\mathbb{N}$ such that (asymptotically)
+$$t = p^{s} + r,\qquad -sp^{s-1}/2\leq r\leq sp^{s-1}/2.$$
+Using the representation 
+$$g_{i_1,\ldots, i_{s}}^{t} = g_{i_1,\ldots,i_s}^{p^s}[(\ldots[g_{i_1},g_{i_2}]\ldots)^{r}, g_{i_s}],$$
+we conclude that (asymptotically)
+$$\ell(g_{i_1,\ldots, i_{s}}^{t})\leq 2(c_{s-1} + 1)t^{1/s} + 2c_{s-1}r^{1/(s-1)}\leq$$ 
+$$\leq 2(c_{s-1} + 1)t^{1/s} + 2c_{s-1}((s/2) p^{s-1})^{1/(s-1)}\leq 2(c_{s-1} + c_{s-1}(s/2)^{1/(s-1)} + 1)t^{1/s}\leq$$
+$$\leq 2(3c_{s-1} + 1)t^{1/s}.$$
+
+\end{proof}
+
+We use the similar idea, i.e., we embed $G$ into a product of $k$-groups with different metrics, i.e., to $\mathbb{Z}^m\times\mathbb{Z}_{2}^{n_1}\times\ldots\times\mathbb{Z}_{k}^{n_{k-1}}$, where $\mathbb{Z}_{i+1}$ is $\mathbb{Z}$ with the following metric:
+\begin{equation}
+\label{zdef}
+d_{i}(z_1,z_2) = c_i(|z_1 - z_2|)^{1/i},
+\end{equation}
+where $c_{i}$ are defined by \eqref{cdef}.
+%$$c_2=4,\quad c_{j} = 2c_{j-1} + 2.$$
+Note that
+$$c_{i} = 6c_{i-1} + 2 = 6^2c_{i-2} + 6\cdot 2 + 2 = \ldots = 6^{i-1} + 2\cdot 6^{i-2} + \ldots  + 2,$$
+\begin{equation}
+\label{cdefalt}
+c_{i} = 2(6^{i} - 1)/5 - 6^{i-1} = (2/5)\cdot 6^{i} - 6^{i-1} - 1/5.
+\end{equation}
+%It is easy to see that
+%$$c_{i} = 2^{i} + \sum^{i-2}_{j=1}2^{j} = 2^{i} + 2(2^{i-2} - 1) = 2^{i} + 2^{i-1} - 2.$$
+Hence
+$$d_{i}(z_1,z_2)=(2\cdot 6^i/5 - 6^{i-1} - 1/5)|z_1 - z_2|^{1/i}.$$
+
+Similarly with the case $k=2$, we introduce 
+$$F(m,n_1,\ldots,n_{k-1}) = B(r, \mathbb{Z}^m\times\mathbb{Z}_{2}^{n_1}\times\ldots\times\mathbb{Z}_{k}^{n_{k-1}}) =  C(m,n_1,\ldots,n_{k-1}) r^{m+2n_1+\ldots+k n_{k-1}}.$$
+Again our goal is to calculate $C(m,n_1,\ldots,n_{k-1})$. 
+
+Note that similarly with the case of $k=2$:
+$$F(m,0,\ldots, 0) = \int_{0\leq t\leq r} C(m-1, 0,\ldots, 0) (r-t)^{m-1} dt = \frac{C(m-1,0,\ldots,0)}{m}r^m.$$
+$$F(m,n_{1},\ldots, n_{s-1},0,\ldots,0) = \int_{0\leq c_{s}t^{1/s}\leq r} C(m-1, n_{1},\ldots, n_{s-1}-1,0,\ldots,0)(r - c_{s}t^{1/s})^{m+2n_{1}+\ldots+s n_{s-1} - s} dt.$$
+Put $z=c_{s}t^{1/s}$, then $t=z^{s}/c_{s}^s$, and
+$$F(m,n_1,\ldots, n_{s-1},0,\ldots,0) = \int_{0\leq z\leq r} s C(m,n_1,\ldots,n_{s-1}-1,0,\ldots,0)
+(r-z)^{m+2n_{1}+\ldots+s n_{s-1} - s} z^{s-1}/c_{s}^s dz=$$
+$$= C(m,n_1,\ldots,n_{s-1}-1,0,\ldots,0)\frac{s(m+2n_{1}+\ldots+s n_{s-1} - s)!(s-1)!}{c_{s}^s(m+2n_{1}+\ldots+s n_{s-1})!
+} r^{m+2n_{1}+\ldots+s n_{s-1}}=$$
+$$=\frac{s C(m,n_1,\ldots,n_{s-1}-1,0,\ldots,0)}{c_{s}^s(m+2n_{1}+\ldots+s n_{s-1})\ldots (m+2n_{1}+\ldots+s n_{s-1} - s + 1)}r^{m+2n_{1}+\ldots+s n_{s-1}},$$
+where the numbers $\{c_{s}\}_{1\leq s\leq k}$ are defined by \eqref{cdefalt}.
+
+Using similar reasoning and \eqref{cdefalt}, we conclude that
+$$C(m,n_1,\ldots,n_{k-1}) = \frac{\prod_{1\leq j\leq k-1} (j+1)^{n_j}}{\prod_{1\leq j\leq k-1}((2/5)\cdot 6^{i} - 6^{i-1} - 1/5  )^{(j+1)n_j}(m+\sum_{1\leq j\leq k-1}(j+1)n_j)!}.$$
+Taking into consideration the symmetry factor $2^{m+\sum_{1\leq j\leq k-1}n_j}$ and the contribution of homogeneous dimension $(m+\sum_{1\leq j\leq k-1}(j+1)n_j)!/2^{m+\sum_{1\leq j\leq k-1}(j+1)n_j}$, we get the following lower estimate for the asymptotic volume:
+$$\frac{\prod_{1\leq j\leq k-1} (j+1)^{n_j}}{2^{\sum_{1\leq j\leq k-1}j n_j}\prod_{1\leq j\leq k-1}((2/5)\cdot 6^{i} - 6^{i-1} - 1/5)^{(j+1)n_j}}.$$
+
+To summarize, we proved the following:
+\begin{Theorem}
+\label{Th3}
+Let $G$ be a $k$-step nilpotent group tha can be embedded into $\mathbb{Z}^{m}\times \mathbb{Z}^{n_1}_2\times\ldots\times\mathbb{Z}^{n_k-1}_k$, where $\mathbb{Z}_i$ are defined by \eqref{zdef}. Then
+$$AV(G)\geq \frac{\prod_{1\leq j\leq k-1} (j+1)^{n_j}}{2^{\sum_{1\leq j\leq k-1}j n_j}\prod_{1\leq j\leq k-1}((2/5)\cdot 6^{i} - 6^{i-1} - 1/5)^{(j+1)n_j}}.$$
+\end{Theorem}
+
+\textbf{Remark.} This technique is quite rough. For example, if we apply it to a generalized Heisenberg group $H_{2n+1}$, i.e., embed it in $\mathbb{Z}^{2n}\times\mathbb{Z}_{2}$, by \eqref{2stepres}, we get instead of $0.8958$ the following lower estimate:
+$\frac{1}{6^{2n}}$.
+
+%\textbf{Case 1.} $n-k/t\geq 0$, $m-t\geq0$, i.e. $k/n\leq t\leq m$. We get
+%$$m + n + k/t + t$$
+%And we have three cases here.
+%
+%\textbf{Case 1a.} $m\leq \sqrt{k}$. Then the minimum  value is
+%$$2m + n + k/m.$$
+%
+%\textbf{Case 1b.} $k/n\leq\sqrt{k}\leq m$, i.e., $\sqrt{k}\leq m$, $\sqrt{k}\leq n$. Then the minimum value is
+%$$m + n + 2\sqrt{k}.$$
+%
+%\textbf{Case 1c.} $\sqrt{k}\leq k/n$, i.e., $\sqrt{k}\leq n$. Then the minimum value is
+%$$m + 2n + k/n.$$
+%
+%Let us calculate the corresponding integrals:
+%
+%For Case 1a. 
+%$$\int_{2m + n + k/m \leq r, m\leq\sqrt{k}, k\leq mn} dk dm dn$$
+
+\section{Heisenberg group. The case when the central element is in the systol.}
+
+Let $G$ be the Heisenberg group $H_3$. Without out loss of generality, it is sufficient to consider the case when the system of generators contains 3 elements: $a$, $b$, and $c=[a,b]$, and $\ell(a)=1$, $\ell(b)=1$, $\ell(c)=\epsilon$ (in the general case we just consider the corresponding subgroup of the Heisenberg group). We are interested in the case $\epsilon<1$, and we want to understand whether it allows to improve the lower estimate for the asymptotic volume or not.
+
+Fix $k\in\mathbb{N}$ that is an exact square. Let us estimate length of $c^{k}$. Note that 
+\begin{equation}
+\label{newest}
+\ell(c^{k})\leq \epsilon k,
+\end{equation}
+\begin{equation}
+\label{oldest}
+\ell(c^{k})\leq 4\sqrt{k}.
+\end{equation}
+Clearly estimate \eqref{oldest} is better than \eqref{newest} if
+\begin{equation}
+\label{kest}
+k\geq 16/\epsilon^2.
+\end{equation}
+
+It means that (using notations of sections 1 and 2 to represent an element of the Heisenberg group) there is a hope to get a better estimate only for $k$ that do not satisfy \eqref{kest} and arbitrary $m,n\in\mathbb{Z}$.
+Note that
+$$B(r,e)\geq\int_{w\in\{(k,m,n) \mid k\geq 16/\epsilon^2\}} dw + \int_{w\in\{(k,m,n) \mid k\leq 16/\epsilon^2\}} dw=
+0.5972 r^4 + C(\epsilon),$$
+where $C(\epsilon)$ is a constant that depends on $\epsilon$ and does not depend on $r$.
+Most probably we are able to get a better lower estimate for the second integral. However it will be just a smaller constant that depends on $\epsilon$ and does not depend on $r$.
+Thus, by \eqref{AsVolDef},
+$$AV(G)=\lim_{r\rightarrow0} \mbox{hd}(G)\frac{B(r,e)}{r^{4}}\geq 0.8958.$$
+
+To summarize, if the element in the systole is contained in center of the Heisenberg group, then it does not contribute to the asymptotic volume.
+%In this case the following analog of Claim \ref{Cl3} holds:
+%\begin{Claim}
+%Suppose that an element $x\in G$ corresponds to $\left(\begin{array}{ccc} 1& n & k\\ 0 & 1 & m\\ 0 & 0 & 1 \end{array}\right)$;
+%then 
+%$$\ell(x)\leq \min_{1\leq t\leq k, t\mid k} |t| + |k/t| + |m-t| + |n-k/t|$$
+%\end{Claim}
+
+%%%int = intold + intnew. intold = int - int(16/epsilon^2<=t<=r) = 2int - int(16/\epsilon^2)=3r^4- 3/2(1/\epsilon^2)
+%%%%int(t<=16/\epsilon^2)=const
+%%%idea const near r^2, then epsilon->infty. So it is not important.
+
+\end{document}
