@@ -1,0 +1,168 @@
+\documentclass{beamer}
+\usepackage{listings}
+\usetheme{Berlin}
+\title{Linking via Fuzzy Matching}
+\author{Alexey Osipov}
+\date{11.12.2020}
+\begin{document}
+\maketitle
+\begin{frame}[fragile]
+\frametitle{Affiliation.}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=20mm, scale=0.01]{sidenis.jpg}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=40mm, scale=0.01]{swiss_re_institute.jpg}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=30mm, scale=0.01]{crd.jpg}
+\end{figure}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Matching by meaningful content.}
+\begin{block}{Statement of the problem}
+We have base of descriptions:
+
+\textbf{Establishments primarily engaged in the production of rice}
+
+We would like to link a phrase with it:
+
+\textbf{Rice}
+\end{block}
+
+\begin{block}{Examples}
+Classifying a new object.
+
+Linking classifications.
+\end{block}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{How to link?}
+\begin{block}{Algorithm.}
+\begin{itemize}
+  \item Preprocessing.
+	\item Embeddings.
+	\item Word2vec, GloVe.
+	\item Embedding for a phrase, e.g., by averaging.
+	\item Compare via cosine similarity.
+	\item Other ways: doc2vec, text2vec.
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Relevant R packages.}
+\begin{block}{R packages.}
+\begin{itemize}
+\item word2vec
+\item text2vec
+\item textTinyR
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}
+\frametitle{Linking by short phrases.}
+\begin{block}{Statement of the problem}
+We have data like
+
+\textbf{BP plc}
+
+We would like to link a phrase with it:
+
+\textbf{BP Amoco plc}
+
+\end{block}
+\begin{block}{Examples}
+Linking datasets with company names.
+\end{block}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{How to link?}
+\begin{block}{Algorithm.}
+\begin{itemize}
+  \item Preprocessing/normalization.
+	\item Fuzzy matching by string distances:
+	
+	\begin{enumerate}
+		\item Jaccard.
+		\item Jaro-Winkler.
+		\item Levenshtein.
+		\item Damereau-Levenshtein.
+		\item Longest common substring.
+	\end{enumerate}
+	\item Filtering by threshold values.
+	\item Disambiguation logic.
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Relevant R packages.}
+\begin{block}{R packages.}
+\begin{itemize}
+\item stringdist
+\item hash
+\item megalodon
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}
+\frametitle{Linking with unstructured text.}
+\begin{block}{Statement of the problem}
+We have data like
+
+\textbf{Grupo Acerinox, S. A. 257768}
+
+\textbf{Cyclone Klaus}
+
+\textbf{DO NOT USE Sweco Lietuva UAB}
+
+We would like to link it with the dataset with data like
+
+\textbf{Acerinox}
+
+\end{block}
+\begin{block}{Examples}
+Linking dataset with claim names with dataset with company names.
+\end{block}
+\end{frame}
+\begin{frame}
+\frametitle{General scheme.}
+\begin{block}{Scheme.}
+\begin{enumerate}
+	\item Classification block (distinguish noisy entries).
+	\item Entity extraction block.
+	\item Linking block
+\end{enumerate}
+\end{block}
+\end{frame}
+\begin{frame}{Classification and entity extraction block.}
+\begin{block}{Scheme}
+\begin{itemize}
+	\item features from the dataset, features from the text.
+	\item features based on presence of key words
+	\item xgboost for classification.
+	\item spacy ner model + regular expressions for entity extraction.
+	\item xgboost, spacyr
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}{Linking block.}
+\begin{block}{Algorithm.}
+\begin{itemize}
+	\item calculate metric that can be calculated fast (TFIDF-based)
+	\item calculate second level metrics (jaccard-based)
+	\item choose threshold via clustering and manual validation
+	\item disambiguation block
+	\item dbscan
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}{Thank you very much!}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=50mm, scale=0.1]{any_questions.jpg}
+\end{figure}
+\end{frame}
+\end{document}

@@ -1,0 +1,90 @@
+\documentclass{beamer}
+\usepackage [english]{babel}
+\usepackage {amssymb}
+\usepackage {amsmath}
+\usepackage{amsthm}
+
+%\newtheorem{Theorem}{Theorem}
+%\newtheorem{Definition}{Definition}
+%\newtheorem{Lemma}{Lemma}
+
+%\usetheme{default} %одна из аозможных тем
+\usetheme{Berlin} %одна из аозможных тем
+%\usetheme{Darmstadt} %одна из возможных тем
+%%%строчка кода про нумерацию страниц
+\setbeamertemplate{headline}{\scriptsize{\vspace*{0.1cm}\hspace*{12.4cm}\insertframenumber}}
+%%%строчка кода про нумерацию ьеорем
+\setbeamertemplate{theorems}[numbered]
+\title{This is my presentation!}
+\author{Dina Kalinichenko\inst{1}\ 
+\\
+{\small{Joined research with Zmei Gorynych.}}
+}
+\institute{
+\inst{1}
+My institution
+}
+\date{July 2014}
+
+\begin{document}
+
+\begin{frame}
+%%%%титульный лист
+%%%%%\maketitle
+\titlepage
+\end{frame}
+\begin{section}{Name of section 1.}
+\begin{frame}
+%%%лист без названия
+\begin{itemize}
+	\item line 1 with formulas
+	\item line 2
+	\item line 3
+\end{itemize}
+\end{frame}
+\begin{frame}{Another slide}
+%%%лист с названием.
+\begin{block}{Name of the block}
+Something is written here.
+%%%блок с названием
+\begin{Definition}
+\label{Lab1}
+This is a very important definition
+\end{Definition}
+\end{block}
+\begin{block}{}
+%блок без названия
+\begin{Theorem}
+\label{Lab2}
+This is a very important theorem.
+\end{Theorem}
+\end{block}
+\end{frame}
+\end{section}
+\begin{section}{Name of section 2.}
+\begin{frame}{Yet another slide}
+%%%еще один лист с названием
+\begin{itemize}
+	\item Theorem \ref{Lab2} implies something. By Definition \ref{Lab1} it is clear
+\item
+\begin{Lemma}
+This is a very important lemma.
+\end{Lemma}
+\end{itemize}
+\end{frame}
+\begin{frame}
+This is how we insert a jpg-file.
+\begin{figure}
+	\centering
+	\includegraphics{scan3.jpg}
+	\caption{A jpg-file.}
+\end{figure}
+This is how we insert a pdf-file or pdf-tex-file.
+		\begin{figure}[hl]
+\def\svgwidth{0.8\columnwidth}
+\input{fig4.pdf_tex}
+\caption{A pdf-file.}
+\end{figure}	
+\end{frame}
+\end{section}
+\end{document}
