@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+\usepackage[english,russian]{babel}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage{dsfont}
+
+\usepackage{amsmath,amsthm}
+
+\usepackage{graphics}
+\usepackage{graphicx}
+
+\setlength{\textwidth}{164mm}%{170mm}     % ширина текста
+\setlength{\textheight}{240mm}%{240mm}     % высота текста (без учета колонтитула)
+\setlength{\topmargin}{-20mm }         % расстояние от верхнего обреза листа
+\setlength{\evensidemargin}{0mm}       % до колонтитула
+\setlength{\oddsidemargin}{0mm}        % до колонтитула = 1 дюйм + значение
+
+\begin{document}
+\begin{center}
+\Large{\textbf{Lipschitz Periodic Shadowing}}
+\end{center}
+\bigskip
+Good morning. The topic of my talk is Lipschitz Periodic Shadowing. The theory of shadowing studies relations between approximate and exact trajectories of dynamical systems on unbounded time intervals. As an approximate trajectory one can take a result of using some numerical methods for finding exact trajectories, or one can take an exact trajectory of a close dynamical system. Suppose $M$ is a closed smooth manifold with Riemannian metric dist, and $f$ is a $C^1$-diffeomorphism of $M$. Clearly we can regard $f$ as a discrete dynamical system on $M$. We say that a sequence $\xi$ is a $d$-pseudotrajectory, if
+%$$\mbox{dist}(x_{n+1},f(x_n))<d.$$
+the inequalities hold. So a diffeomorphism $f$ maps points $x_n$ close to points $x_{n+1}$. The exact trajectory is a $d$-pseudotrajectory for any $d$.
+
+Thus a $d$-pseudotrajectory is one of possible generalisations of the notion of an approximate trajectory. We say that $f$ has POTP (or pseudo-orbit tracing property or shadowing property) if for every $\epsilon$ there exists $d$ such that for every $d$-pseudotrajectory $\xi$ there exists an exact trajectory $\{p_n\}$ such that
+%$$\mbox{dist}(x_n,p_n)<\epsilon.$$
+the inequalities hold. Or the $d$-pseudotrajectory is $\epsilon$-close to some exact trajectory. So if $f$ has pseudo-orbit tracing property then every sufficiently precise approximate trajectory is close to some exact trajectory. One can impose restrictions on the dependence of $\epsilon$ on $d$ in the definition of POTP. If we set $\epsilon=Ld$ in the definition of POTP we get the definition of Lipschitz shadowing property. We say that $f$ has LipSP (or Lipschitz shadowing property) if there exist $L$ and $d_0$ such that for every $d$ less than $d_0$ and $d$-pseudotrajectory $\xi$ there exists an exact trajectory $\{p_n\}$ such that the inequalities hold.  Or the $d$-pseudotrajectory $\xi$ is $Ld$-close to some exact trajectory $\{p_n\}$.  In this case (when this inequalities hold) we say that the exact trajectory $\{p_n\}$ $Ld$-shadows pseudotrajectory $\xi$. Note that POTP is weaker than LipSP.
+
+One can replace trajectories and approximate trajectories in the definitions of POTP and LipSP by their periodic analogues. We say that $f$ has PerSh (periodic shadowing property) if for every $\epsilon$ there exists $d$ such that for every periodic $d$-pseudotrajectory there exists a periodic exact trajectory $\{p_n\}$ such that the inequalities hold. Or the pseudotrajectory $\xi$ and the exact trajectory $\{p_n\}$ are $\epsilon$-close. Thus, if $f$ has PerSh then every sufficiently precise periodic approximate trajectory is close to some periodic exact trajectory. Similarly to LipSP we can set $\epsilon=Ld$ in the definition of PerSh to get the definition of LipPerSh (Lipschitz periodic shadowing property). We say that $f$ has LipPerSh (or Lipschitz periodic shadowing property) if there exist positive constants $L$ and $d_0$ such that any $d$-pseudotrajectory $\xi$ is $Ld$-shadowed by some periodic exact trajectory.  Note that we will denote a property and a set of diffeomorphisms having this property by the same symbol. Note that PerSh is weaker than LipPerSh. Note that in the definitions of PerSh and LipPerSh the pseudotrajectory and the exact trajectory may have different periods.
+
+We say that a diffeomorphism $f$ is structurally stable if it is topologically conjugate with every sufficiently $C^1$-close diffeomorphism $g$. %As usual let $\Omega(f)$ be the nonwandering set of a diffeomorphism $f$. 
+Denote by $S$ the set of structurally stable diffeomorphisms. We say that a diffeomorphism $f$ is $\Omega$-stable if it is topologically conjugate with every sufficiently $C^1$-close diffeomorphism $g$ on their nonwandering sets. Let $\Omega S$ be the set of $\Omega$-stable diffeomorphisms. It is well-known that $\Omega$-stability is equivalent to Axiom A and no-cycle condition. 
+
+Let us list some facts concerning shadowing properties. Relations between structural stability and different shadowing properties pose a great interest. Sakai proved that the $C^1$-interior of the set of diffeomorphisms having POTP coincides with the set of structurally stable diffeomorphisms. However the set of diffeomorphisms having POTP does not coincide with the set of structurally stable diffeomorphisms inspite of the fact that structural stability implies POTP. Similarly the set of diffeomorphisms having PerSh does not coincide with the set of $\Omega$-stable diffeomorphisms. Recently Pilyugin and Tikhomirov proved that Lipschitz shadowing property is equivalent to $\Omega$-stability and Pilyugin proved the equivalence of $\Omega$-stability and so-called variational shadowing. We will discuss two theorems from my joint work with Pilyugin and Tikhomirov. It turns out that the $C^1$-interior of the set of diffeomorphisms having periodic shadowing property coincides with the set of $\Omega$-stable diffeomorphisms. Also we will discuss the equivalence of $\Omega$-stability and Lipschitz periodic shadowing property. Thus theorems similar to those about shadowing properties and structural stability are valid for periodic shadowing properties and $\Omega$-stability.
+
+As PerSh is weaker than LipPerSh to prove the theorems it is enough to prove three following inclusions: first that $\Omega S$ is a subset of LipPerSh, second that the $C^1$-interior of PerSh is a subset of $\Omega S$ and third that LipPerSh is a subset of $\Omega S$. We prove the last inclusion (that LipPerSh is a subset of $\Omega S$) according to the following scheme. With out loss of generality we suppose that both $f$ and inverse of $f$ have LipPerSP with constants $L$ and $d_0$. The proof consists of four steps. The first step is to prove that any periodic point is hyperbolic. The second step is to prove the uniform hyperbolicity of periodic points. The third step is to prove that $f$ has the Axiom A. And the last step is to prove that $f$ satisfies the no-cycle condition. Now we will give a more detailed description of the proof.
+
+First we will prove that every $\Omega$-stable diffeomorphism has LipPerSh. Suppose that $f$ is $\Omega$-stable. Then by spectral decomposition theorem its nonwandering set $\Omega(f)$ is a union of a finite number of hyperbolic basis sets. Then we prove that any sufficiently precise approximate $d$-pseudotrajectory $\xi$ ''lies'' in a small neighborhood of some basis set $\Omega_j$. By the shadowing lemma a diffeomorphism $f$ has LipSP and is expansive in some small neighborhood of a hyperbolic set $\Omega_j$. Thus, pseudotrajectory $\xi$ is $Ld$-shadowed by an exact trajectory and due to expansivity this exact trajectory is periodic.
+
+Next we will prove that the $C^1$-interior of PerSh is a subset of $\Omega S$. In the proof we will use the result obtained by Hayshi and Aoki. Let HP be the set of diffeomorphisms having only hyperbolic periodic points. Hayashi and Aoki proved that the $C^1$-interior of HP coincides with $\Omega S$. As the $C^1$-interior of PerSh is $C^1$-open, it is enough to prove that the $C^1$-interior of PerSh is a subset of HP. %For simplification we suppose that $f$ has a nonhyperbolic fixed point $p$ with an eigenvalue equal to 1. %Then we $C^1$-small pertube $f$ to get a diffeomorphism $h$ such that corresponding mapping $H$ had a very simple form, very convenient for calculations.
+Then we $C^1$-perturb $f$ to get a diffeomorphism $h$ that is linear in a small neighborhood of its nonhyperbolic point $p$.
+ %Next we construct a periodic $d$-pseudotrajectory that fluctuates near $p$ along the first coordinate $u$ and ''goes sufficiently far'' from $p$ and prove that this pseudotrajectory can not be $Ld$-shadowed by any exact trajectory. 
+ Next we construct the periodic pseudotrajectory and prove that it cannot be shadowed by any periodic exact trajectory.
+
+We have already mentioned that the proof of inclusion LipPerSh is a subset of $\Omega S$ consists of four steps. We suppose that both $f$ and inverse of $f$ have LipPerSP with constants $L$ and $d_0$. The first step is to prove that any periodic point is hyperbolic. To get a contradiction suppose that $f$ has a nonhyperbolic periodic point $p$.
+In this case we introduce the coordinates in the appropriate way, construct the periodic $d$-pseudotrajectory and prove that it cannot be $Ld$-shadowed by any exact trajectory. The second (and most difficult) step is to prove the fact that the set of all periodic points has all standart properties of a hyperbolic set except compactness. That is we need to prove that for every periodic point $p$ there exist complementary invariant spaces $S(p)$ and $U(p)$ such that this hyperbolicity estimates with universal constants $C$ and $\lambda$ are valid. Suppose that $p$ is an $m$-periodic point. Let $S(p)$ and $U(p)$ be corresponding stable and unstable spaces. Obviously they are complementary and $Df$-invariant. Thus what we need to prove are the hyperbolicity estimates. Fix an arbitrary vector $v_u$ from an unstable space $U(p)$. %Let $A_j$ be the derivative of mapping $f^j$ at point $p$. 
+Let vectors $v_i$ be defined by the formulas.
+Let $\lambda_i$ be the ratio of $v_{i+1}$ and $v_i$. 
+We define a sequence $a_i$ according to the formulas in the slides, where $\tau$ depends only on $\lambda_j$ for $j$ from $0$ to $m$. %Then we construct a sequence $\{w_i\}$ of points from tangent spaces in the following way. For $i$ from $0$ to $m-1$ we define them by this formula. Note that in this case the absolute values of $a_i$ and $w_i$ are equal. Define $w_m$ by the following formula. Let $n$ be the dimension of manifold $M$. Points $w_i$ for $i$ from $m+1$ to $m(n+1)$ are defined by this formula. Note that for $w_{km}$ the following relations are true. So $w_{(n+1)m}$ is equal to $w_0$, and sequence $\{w_i\}$ can be considered as $m(n+1)$-periodic.
+Then we construct a periodic sequence $\{w_i\}$ of points of tangent spaces that satisfy the relations. Note that the constructed sequence will be $m(n+1)$-periodic where $n$ is a dimension of $M$. Using this periodic sequence $\{w_i\}$ of points of tangent spaces, we construct a periodic $d$-pseudotrajectory of points of $M$. By our assumptions it is $Ld$-shadowed by some exact trajectory. But as periodic point $p$ we have started from is hyperbolic, it is a unique periodic point in its small neighborhood. Thus the pseudotrajectory is $Ld$-shadowed by the trajectory of $p$. Using this fact we get the estimates for absolute values of $a_i$ for $i$ from $0$ to $m-1$. And given that the numbers $\lambda$ depend on the numbers $a$ finally we get the required estimates for $i$ less then period of $p$ minus 1. The estimates for greater $i$ can be obtained in same way, as point $p$ can be considered as a point of greater period. The inequalities for $v_s\in S(p)$ can be obtained similarly.
+
+The third step is to prove that $f$ has the Axiom A. Recall that an index of a hyperbolic point is the dimension of its unstable manifold. We consider the set of all periodic points of index $l$ and using standart methods prove that the closure of this set is hyperbolic. Then using the fact that $f$ has LipPerSh we prove that any nonwandering point can be approximated by periodic points. Thus the nonwandering set is a union of hyperbolic sets each of which is a closure of periodic points of some index.
+
+The last step is to prove that $f$ satisfies the no-cycle condition. Each cycle can be approximated as close as we need by periodic pseudotrajectories, and hence as $f$ has LipPerSh, by periodic trajectories. So every trajectory forming a cycle lies in the closure of the set of periodic points. Note that it contradicts to the fact that this trajectories are the trajectories of wandering points.
+
+We considered PerSh and LipPerSh. Recall that...
+Thus, we have proved the following theorems. First we proved that the $C^1$-interior of the set of diffeomorphisms having periodic shadowing property coincides with the set of $\Omega$-stable diffeomorphisms. And second we proved that Lipschitz periodic shadowing property  is equivalent to $\Omega$-stability.
+
+Thank you very much for your attention.
+
+\end{document}
