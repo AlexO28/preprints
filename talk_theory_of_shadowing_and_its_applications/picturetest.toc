@@ -1,0 +1,6 @@
+\babel@toc {english}{}\relax 
+\beamer@sectionintoc {1}{Definitions}{2}{0}{1}
+\beamer@sectionintoc {2}{Main problems}{5}{0}{2}
+\beamer@sectionintoc {3}{Genericity problem}{6}{0}{3}
+\beamer@sectionintoc {4}{Characterisation problem}{13}{0}{4}
+\beamer@sectionintoc {5}{Shadowing for flows}{25}{0}{5}
